@@ -1,0 +1,53 @@
+Firebase 
+    Firebase is a set of backend cloud computing services and application development platforms provided by Google. 
+    It hosts databases, services, authentication, and integration for a variety of application.
+    It's a tool made by Google; a Google app development platform. 
+    Firebase is not a programming language or framework.
+    It’s a Backend-as-a-Service (BaaS) - a platform with tools to handle backend features like auth, database, storage, and hosting without writing your own backend code.
+    A toolbox from Google that gives you ready-made backend services (like login, database, and hosting) so you don’t have to build them yourself.
+    However, if i want to build all that myself, I'd have to use a backend language (like Python with Flask or Django) and set up:
+        My own authentication system
+        My own database (like PostgreSQL)
+        My own file storage
+        My own server and hosting
+    Firebase supports:
+        Authentication
+        Cloud Functions
+        Cloud Storage
+        Cloud Messaging
+        Database
+        Hosting 
+        Security
+        Crashlytics
+        Performance Monitoring
+        Test Labs etc..
+
+Set Up Firebase in React-Vite
+    1. Install Firebase SDK
+        npm install firebase
+    2. Set Up Firebase Project (from Firebase Console)
+        Go to Firebase Console
+        Click “Add project”
+        Follow the steps
+        After creation, click “Web” (</>) to register app
+        You'll get Firebase config – copy it.
+    3. In React-Vite app, create firebase.js
+        src/firebase.js
+    4. Paste the copied configuration.
+    5. Add .env for Security (Optional)
+        VITE_FIREBASE_API_KEY=xxxx
+        VITE_FIREBASE_AUTH_DOMAIN=xxxx ...
+
+        Update firebase.js to use env
+            const firebaseConfig = {
+                apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+                authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+                ...
+                };
+    6. Use firebase in the app.
+        import { db } from './firebase';
+        // Use db with Firestore methods
+    7. Run the App
+        npm run dev
+
+

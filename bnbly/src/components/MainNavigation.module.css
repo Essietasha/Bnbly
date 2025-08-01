@@ -1,0 +1,97 @@
+.navFlex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    font-family: "Roboto", sans-serif;
+}
+
+.navFlex .logo{
+    color: #ec4141;
+    font-size: 2.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navFlex .logo h5{
+    font-size: 1.2rem;
+    padding-top: 10px;
+    margin-left: 0.2rem;
+    font-weight: 600;
+}
+
+.navFlex .links ul{
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.navFlex .links ul a{
+    color: #111111;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-right: 2rem;
+}
+
+.navFlex .links .active{
+    font-weight: bold;
+    border-bottom: 2px solid #fff;
+}
+
+.navFlex .links ul li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navFlex .links ul li> :first-child {
+  font-size: 2rem;
+  margin-right: 10px;
+}
+
+.navFlex .moreLinks{
+    color: #333;
+    font-weight: bold;
+}
+
+.navFlex .moreLinks li:hover{
+    border-bottom: 2px solid #111;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 600px) {
+
+    .navFlex{
+        padding: 2rem;
+    }
+
+    .navFlex .logo{
+        font-size: 2rem;
+    }
+
+    .host, .loginSignup, .navFlex .logo, .navFlex .moreLinks{
+        display: none;
+    }
+
+    .navFlex .links ul li{
+        display: block;
+    }
+    
+    .navFlex .links a{
+        margin-right: 0rem;
+    }
+
+}
