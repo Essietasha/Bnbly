@@ -1,16 +1,12 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { seedRoomList } from '../scripts/seedRooms';
 import RoomList from '../components/Roomlist';
+import ManageDataButton from '../components/ManageDataButton';
+import LinksNavigation from '../components/LinksNavigation';
 
 const Homepage = () => {
-  // useEffect(() => {
-  //     seedRoomList();
-  // }, []);
 
   return (
-    <>
-    {/* <button onClick={seedRoomList}>Seed Data</button> */}
+    <>    
     <div className="w-full flex justify-center py-6 px-4">
       <div className="w-full max-w-4xl rounded-full shadow-md px-8 py-3 flex items-center bg-white">
         
@@ -51,7 +47,14 @@ const Homepage = () => {
       </div>
     </div>
 
-    <RoomList />
+      <RoomList title="Popular Homes in Lagos" collectionName="popularHomesInLagos" />
+      <RoomList title="Available next month on the Island" collectionName="availableNextMonthIsland" />
+      <RoomList title="Homes on the Mainland" collectionName="homesOnTheMainland" />
+      <RoomList title="Available next month on the Mainland" collectionName="availableNextMonthMainland" />
+      <RoomList title="Homes on the Island" collectionName="homesOnTheIsland" />
+      <RoomList title="Stay in Ikeja" collectionName="stayInIkeja" />
+
+      <LinksNavigation />
     </>
   );
 };
