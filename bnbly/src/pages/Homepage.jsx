@@ -1,5 +1,5 @@
 import React from 'react';
-import RoomList from '../components/Roomlist';
+import RoomList from '../components/RoomList';
 import ManageDataButton from '../components/ManageDataButton';
 import LinksNavigation from '../components/LinksNavigation';
 

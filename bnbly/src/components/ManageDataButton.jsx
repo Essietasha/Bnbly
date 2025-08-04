@@ -9,7 +9,7 @@ const deleteCollection = async (collectionName) => {
   const colRef = collection(db, collectionName);
   const snapshot  = await getDocs(colRef);
 
-  for (const docSnap of snapshot .docs) {
+  for (const docSnap of snapshot.docs) {
     await deleteDoc(doc(db, collectionName, docSnap.id));
   }
   console.log(`Deleted all from ${collectionName}`);

@@ -45,6 +45,34 @@ const popularHomesInLagos = [
     rating: 5.0,
     guestFavorite: false,
   },
+  {
+    name: "Apartment in Lagos",
+    price: 200,
+    image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDE4fHxyb29tcyUyMGluJTIwbGFnb3N8ZW58MHx8MHx8fDA%3D",
+    rating: 4.8,
+    guestFavorite: false,
+  },
+  {
+    name: "3 bedroom in Maryland",
+    price: 250,
+    image: "https://images.unsplash.com/photo-1746549854237-1836d4c6d76c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjM2fHxyb29tcyUyMGluJTIwbGFnb3N8ZW58MHx8MHx8fDA%3D",
+    rating: 5.0,
+    guestFavorite: false,
+  },
+  {
+    name: "Mini Flat in Ajah",
+    price: 180,
+    image: "https://images.unsplash.com/photo-1630568238435-27b47667969b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTV8fHJvb21zJTIwaW4lMjBsYWdvc3xlbnwwfHwwfHx8MA%3D%3D",
+    rating: 4.9,
+    guestFavorite: false,
+  },
+  // {
+  //   name: "Apartment in VI",
+  //   price: 280,
+  //   image: "https://plus.unsplash.com/premium_photo-1675615648367-a14fc002dded?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1pbi1zYW1lLXNlcmllc3w2fHx8ZW58MHx8fHx8",
+  //   rating: 5.0,
+  //   guestFavorite: false,
+  // },
 ];
 
 
@@ -92,6 +120,34 @@ const availableNextMonthIsland = [
     rating: 4.8,
     guestFavorite: false,
   },
+  {
+    name: "Apartment in Lagos",
+    price: 99,
+    image: "https://images.unsplash.com/photo-1646082144991-dc168f7bae03?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjc1fHxyb29tcyUyMGluJTIwbGFnb3N8ZW58MHx8MHx8fDA%3D",
+    rating: 4.5,
+    guestFavorite: false,
+  },
+  {
+    name: "Apartment in Lagos",
+    price: 75,
+    image: "https://images.unsplash.com/photo-1661258320748-6c3ec4641813?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjU2fHxyb29tcyUyMGluJTIwbGFnb3N8ZW58MHx8MHx8fDA%3D",
+    rating: 4.7,
+    guestFavorite: false,
+  },
+  {
+    name: "Apartment in Lagos",
+    price: 100,
+    image: "https://images.unsplash.com/photo-1609587639086-b4cbf85e4355?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODJ8fHJvb21zJTIwaW4lMjBsYWdvc3xlbnwwfHwwfHx8MA%3D%3D",
+    rating: 4.9,
+    guestFavorite: false,
+  },
+  // {
+  //   name: "Staycation in Lagos",
+  //   price: 305,
+  //   image: "https://plus.unsplash.com/premium_photo-1676823547752-1d24e8597047?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA5fHxyb29tcyUyMGluJTIwbGFnb3N8ZW58MHx8MHx8fDA%3D",
+  //   rating: 5.0,
+  //   guestFavorite: false,
+  // },
 ];
 
 
@@ -127,7 +183,7 @@ const homesOnTheMainland = [
   },
   {
     name: "Apartment in Ikeja GRA",
-    price: 120,
+    price: 130,
     image: "https://bit.ly/4oi0yk4",
     rating: 5.0,
     guestFavorite: false,
@@ -139,6 +195,34 @@ const homesOnTheMainland = [
     rating: 4.9,
     guestFavorite: false,
   },
+    {
+    name: "Apartment in Ikate",
+    price: 90,
+    image: "https://images.unsplash.com/photo-1659731062338-5a969a0b0c5d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTkwfHxyb29tcyUyMGluJTIwbGFnb3N8ZW58MHx8MHx8fDA%3D",
+    rating: 4.7,
+    guestFavorite: false,
+  },
+  {
+    name: "Room in Ogudu",
+    price: 115,
+    image: "https://images.unsplash.com/photo-1541194577687-8c63bf9e7ee3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGxpdmluZyUyMHJvb20lMjBpbiUyMGxhZ29zfGVufDB8fDB8fHww",
+    rating: 5.0,
+    guestFavorite: false,
+  },
+  {
+    name: "Apartment in Ikeja",
+    price: 99,
+    image: "https://plus.unsplash.com/premium_photo-1723901831135-782c98d8d8e0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGxpdmluZyUyMHJvb20lMjBpbiUyMGxhZ29zfGVufDB8fDB8fHww",
+    rating: 4.9,
+    guestFavorite: false,
+  },
+  // {
+  //   name: "Apartment in Festac",
+  //   price: 95,
+  //   image: "https://images.unsplash.com/photo-1581791836186-7609d9ecfd38?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bGl2aW5nJTIwcm9vbSUyMGluJTIwbGFnb3N8ZW58MHx8MHx8fDA%3D",
+  //   rating: 5.0,
+  //   guestFavorite: false,
+  // },
 ];
 
 
@@ -155,7 +239,7 @@ const availableNextMonthMainland = [
     name: "Apartment on the Mainland",
     price: 75,
     image: "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzM5fHxyb29tcyUyMGluJTIwbGFnb3N8ZW58MHx8MHx8fDA%3D",
-    rating: 4.5,
+    rating: 4.8,
     guestFavorite: false,
   },
   {
@@ -186,6 +270,34 @@ const availableNextMonthMainland = [
     rating: 4.8,
     guestFavorite: false,
   },
+    {
+    name: "Apartment on the Mainland",
+    price: 95,
+    image: "https://images.unsplash.com/photo-1564078516393-cf04bd966897?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGxpdmluZyUyMHJvb20lMjBpbiUyMGxhZ29zfGVufDB8fDB8fHww",
+    rating: 5.0,
+    guestFavorite: false,
+  },
+  {
+    name: "Apartment on the Mainland",
+    price: 85,
+    image: "https://images.unsplash.com/photo-1616952391192-d8bc85de60d9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGxpdmluZyUyMHJvb20lMjBpbiUyMGxhZ29zfGVufDB8fDB8fHww",
+    rating: 4.8,
+    guestFavorite: false,
+  },
+  {
+    name: "Apartment on the Mainland",
+    price: 99,
+    image: "https://images.unsplash.com/photo-1607545484637-233cbb1c4169?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bGl2aW5nJTIwcm9vbSUyMGluJTIwbGFnb3N8ZW58MHx8MHx8fDA%3D",
+    rating: 4.8,
+    guestFavorite: false,
+  },
+  // {
+  //   name: "Apartment on the Mainland",
+  //   price: 100,
+  //   image: "https://plus.unsplash.com/premium_photo-1706152482966-a295c922cdcf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bGl2aW5nJTIwcm9vbSUyMGluJTIwbGFnb3N8ZW58MHx8MHx8fDA%3D",
+  //   rating: 5.0,
+  //   guestFavorite: false,
+  // },
 ];
 
 
@@ -207,13 +319,6 @@ const homesOnTheIsland = [
   },
   {
     name: "Apartment on the Island",
-    price: 260,
-    image: "https://bit.ly/3UG6Axn",
-    rating: 5.0,
-    guestFavorite: false,
-  },
-  {
-    name: "Apartment on the Island",
     price: 300,
     image: "https://bit.ly/3HcKakh",
     rating: 5.0,
@@ -226,6 +331,13 @@ const homesOnTheIsland = [
     rating: 4.9,
     guestFavorite: false,
   },
+    {
+    name: "Apartment on the Island",
+    price: 255,
+    image: "https://bit.ly/3UG6Axn",
+    rating: 5.0,
+    guestFavorite: false,
+  },
   {
     name: "Apartment on the Island",
     price: 260,
@@ -233,8 +345,35 @@ const homesOnTheIsland = [
     rating: 5.0,
     guestFavorite: false,
   },
+    {
+    name: "Apartment on the Island",
+    price: 220,
+    image: "https://plus.unsplash.com/premium_photo-1674676470323-4aa46ef69086?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGFwYXJ0bWVudHMlMjBvbiUyMGxhZ29zJTIwaXNsYW5kfGVufDB8fDB8fHww",
+    rating: 4.9,
+    guestFavorite: false,
+  },
+  {
+    name: "Apartment on the Island",
+    price: 315,
+    image: "https://images.unsplash.com/photo-1633119712778-30d94755de54?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YXBhcnRtZW50cyUyMGluJTIwbGFnb3N8ZW58MHx8MHx8fDA%3D",
+    rating: 5.0,
+    guestFavorite: false,
+  },
+  {
+    name: "Apartment on the Island",
+    price: 275,
+    image: "https://images.unsplash.com/photo-1630703104248-45342d591a60?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHJvb21zJTIwYXBhcnRtZW50c3xlbnwwfHwwfHx8MA%3D%3D",
+    rating: 5.0,
+    guestFavorite: false,
+  },
+  // {
+  //   name: "Apartment on the Island",
+  //   price: 330,
+  //   image: "https://images.unsplash.com/photo-1627484819540-40a871c972ae?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fHJvb21zJTIwYXBhcnRtZW50c3xlbnwwfHwwfHx8MA%3D%3D",
+  //   rating: 5.0,
+  //   guestFavorite: false,
+  // },
 ];
-
 
 
 // Stay in Ikeja
@@ -249,14 +388,14 @@ const stayInIkeja = [
   {
     name: "Apartment in Ikeja",
     price: 135,
-    image: "https://images.unsplash.com/photo-1661258464589-747d9cb1318d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjYyfHxyb29tcyUyMGluJTIwbGFnb3N8ZW58MHx8MHx8fDA%3D",
+    image: "https://images.unsplash.com/photo-1629042306553-206be379b254?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fHJvb21zJTIwYXBhcnRtZW50c3xlbnwwfHwwfHx8MA%3D%3D",
     rating: 5.0,
     guestFavorite: false,
   },
   {
     name: "Home in Ikeja",
     price: 100,
-    image: "https://plus.unsplash.com/premium_photo-1675616563084-63d1f129623d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzN8fHJvb21zJTIwaW4lMjBsYWdvc3xlbnwwfHwwfHx8MA%3D%3D",
+    image: "https://plus.unsplash.com/premium_photo-1676823552800-3f23a64b5f35?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzd8fHJvb21zJTIwYXBhcnRtZW50c3xlbnwwfHwwfHx8MA%3D%3D",
     rating: 5.0,
     guestFavorite: false,
   },
@@ -281,6 +420,34 @@ const stayInIkeja = [
     rating: 4.9,
     guestFavorite: false,
   },
+    {
+    name: "Apartment in Ikeja",
+    price: 150,
+    image: "https://plus.unsplash.com/premium_photo-1674676471837-259d368a1d6e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fHJvb21zJTIwYXBhcnRtZW50c3xlbnwwfHwwfHx8MA%3D%3D",
+    rating: 4.8,
+    guestFavorite: false,
+  },
+  {
+    name: "Apartment in Ikeja",
+    price: 165,
+    image: "https://plus.unsplash.com/premium_photo-1678752717095-08cd0bd1d7e7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fHJvb21zJTIwYXBhcnRtZW50c3xlbnwwfHwwfHx8MA%3D%3D",
+    rating: 4.9,
+    guestFavorite: false,
+  },
+  {
+    name: "Room in Ikeja",
+    price: 100,
+    image: "https://plus.unsplash.com/premium_photo-1676823552649-d3221b563566?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fHJvb21zJTIwYXBhcnRtZW50c3xlbnwwfHwwfHx8MA%3D%3D",
+    rating: 4.8,
+    guestFavorite: false,
+  },
+  // {
+  //   name: "Home in Ikeja",
+  //   price: 215,
+  //   image: "https://images.unsplash.com/photo-1630703103236-f712db10e234?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHJvb21zJTIwYXBhcnRtZW50c3xlbnwwfHwwfHx8MA%3D%3D",
+  //   rating: 5.0,
+  //   guestFavorite: false,
+  // },
 ];
 
 // Seed a Unit
