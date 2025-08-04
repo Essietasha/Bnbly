@@ -7,6 +7,8 @@ import { FaArrowRight } from 'react-icons/fa';
 
 const RoomList = ({title, collectionName}) => {
     const [rooms, setRooms] = useState([]);
+    const [loading, setLoading] = useState(true);
+
 
     useEffect(() => {
         const fetchRooms = async () => {
@@ -17,6 +19,8 @@ const RoomList = ({title, collectionName}) => {
                 setRooms(data);
             } catch (error) {
                 console.log(`Error fetching from ${collectionName}`, error);
+            } finally {
+              setLoading(false);
             }
         };
 
@@ -38,9 +42,16 @@ const RoomList = ({title, collectionName}) => {
       </div>  
 
       <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
-        {limitedCategory.map((room) => (
-          <RoomCard key={room.id} room={room} />
-        ))}
+          { loading ? (
+            // show 6 gray boxes while loading
+            Array.from({ length: 6 }).map((_, index) => (
+              <div key={index} className="bg-gray-200 h-60 rounded-xl animate-pulse" />
+            ))
+          ) : (
+            limitedCategory.map((room) => (
+              <RoomCard key={room.id} room={room} collectionName={collectionName} />
+            ))
+          )}
       </div>
     </div>
   </>

@@ -3,10 +3,11 @@ import RoomList from '../components/RoomList';
 import ManageDataButton from '../components/ManageDataButton';
 import LinksNavigation from '../components/LinksNavigation';
 
-const Homepage = () => {
+const HomePage = () => {
 
   return (
     <>    
+    <ManageDataButton />
     <div className="w-full flex justify-center py-6 px-4">
       <div className="w-full max-w-4xl rounded-full shadow-md px-8 py-3 flex items-center bg-white">
         
@@ -59,4 +60,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default HomePage;
