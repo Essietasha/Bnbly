@@ -7,11 +7,11 @@ const popularHomesInLagos = [
     name: "Cozy Cabin in VGC",
     price: 450,
     image: "http://bit.ly/4fhYfcJ",
-    rating: 4.9,
+    rating: 5.0,
     guestFavorite: false,
     description: "This luxurious cabin in VGC offers a stylish, modern retreat. Located on the Island Road, it provides a peaceful escape amidst the city's energy. The beautifully furnished living area is designed for relaxation, offering a taste of sophisticated urban living. Onsite support staff are available during specified hours for assistance.",
-    hostname: "Kally",
     amenities: ["Air conditioning", "Gym", "Washer", "Kitchen", "TV", "Workspace", "Heating", "Coffee maker", "Free parking", "Pool", "Parking space"],
+    topTen: true,
     details: {
       bedrooms: 3,
       beds: 3,
@@ -27,6 +27,11 @@ const popularHomesInLagos = [
       profileImage: "",
       isSuperhost: true,
       yearsOfHosting: 3,
+      rating: 4.85,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      hostImage: "https://images.unsplash.com/photo-1676195470090-7c90bf539b3b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29uJTIwaWNvbnxlbnwwfHwwfHx8MA%3D%3D",
       contact: {
         email: "kally@bnbly.com",
         phone: "+23477888888"
@@ -72,8 +77,8 @@ const popularHomesInLagos = [
     rating: 4.8,
     guestFavorite: false,
     description: "This luxurious cabin in VGC offers a stylish, modern retreat. Located on the Island Road, it provides a peaceful escape amidst the city's energy. The beautifully furnished living area is designed for relaxation, offering a taste of sophisticated urban living. Onsite support staff are available during specified hours for assistance.",
-    hostname: "Kally",
     amenities: ["Air conditioning", "Gym", "Washer", "Kitchen", "TV", "Workspace", "Heating", "Coffee maker", "Free parking", "Pool", "Parking space"],
+    topTen: true,
     details: {
       bedrooms: 3,
       beds: 3,
@@ -89,6 +94,14 @@ const popularHomesInLagos = [
       profileImage: "",
       isSuperhost: true,
       yearsOfHosting: 3,
+      rating: 4.85,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      hostImage: "https://images.unsplash.com/photo-1676195470090-7c90bf539b3b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29uJTIwaWNvbnxlbnwwfHwwfHx8MA%3D%3D",
       contact: {
         email: "kally@bnbly.com",
         phone: "+23477888888"
@@ -137,8 +150,8 @@ const homesOnTheMainland = [
     rating: 5.0,
     guestFavorite: false,
     description: "This luxurious cabin in VGC offers a stylish, modern retreat. Located on the Island Road, it provides a peaceful escape amidst the city's energy. The beautifully furnished living area is designed for relaxation, offering a taste of sophisticated urban living. Onsite support staff are available during specified hours for assistance.",
-    hostname: "Kally",
     amenities: ["Air conditioning", "Gym", "Washer", "Kitchen", "TV", "Workspace", "Heating", "Coffee maker", "Free parking", "Pool", "Parking space"],
+    topTen: false,
     details: {
       bedrooms: 3,
       beds: 3,
@@ -154,6 +167,14 @@ const homesOnTheMainland = [
       profileImage: "",
       isSuperhost: true,
       yearsOfHosting: 3,
+      rating: 4.85,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      hostImage: "https://images.unsplash.com/photo-1676195470090-7c90bf539b3b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29uJTIwaWNvbnxlbnwwfHwwfHx8MA%3D%3D",
       contact: {
         email: "kally@bnbly.com",
         phone: "+23477888888"
@@ -196,8 +217,8 @@ const homesOnTheMainland = [
     rating: 4.8,
     guestFavorite: false,
     description: "This luxurious cabin in VGC offers a stylish, modern retreat. Located on the Island Road, it provides a peaceful escape amidst the city's energy. The beautifully furnished living area is designed for relaxation, offering a taste of sophisticated urban living. Onsite support staff are available during specified hours for assistance.",
-    hostname: "Kally",
     amenities: ["Air conditioning", "Gym", "Washer", "Kitchen", "TV", "Workspace", "Heating", "Coffee maker", "Free parking", "Pool", "Parking space"],
+    topTen: true,
     details: {
       bedrooms: 3,
       beds: 3,
@@ -213,6 +234,14 @@ const homesOnTheMainland = [
       profileImage: "",
       isSuperhost: true,
       yearsOfHosting: 3,
+      rating: 4.85,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      hostImage: "https://images.unsplash.com/photo-1676195470090-7c90bf539b3b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29uJTIwaWNvbnxlbnwwfHwwfHx8MA%3D%3D",
       contact: {
         email: "kally@bnbly.com",
         phone: "+23477888888"
@@ -260,7 +289,7 @@ const homesOnTheIsland = [
     rating: 5.0,
     guestFavorite: false,
     description: "This luxurious cabin in VGC offers a stylish, modern retreat. Located on the Island Road, it provides a peaceful escape amidst the city's energy. The beautifully furnished living area is designed for relaxation, offering a taste of sophisticated urban living. Onsite support staff are available during specified hours for assistance.",
-    hostname: "Kally",
+    topTen: true,
     amenities: ["Air conditioning", "Gym", "Washer", "Kitchen", "TV", "Workspace", "Heating", "Coffee maker", "Free parking", "Pool", "Parking space"],
     details: {
       bedrooms: 3,
@@ -277,6 +306,14 @@ const homesOnTheIsland = [
       profileImage: "",
       isSuperhost: true,
       yearsOfHosting: 3,
+      rating: 4.85,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      hostImage: "https://images.unsplash.com/photo-1676195470090-7c90bf539b3b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29uJTIwaWNvbnxlbnwwfHwwfHx8MA%3D%3D",
       contact: {
         email: "kally@bnbly.com",
         phone: "+23477888888"
@@ -319,7 +356,7 @@ const homesOnTheIsland = [
     rating: 5.0,
     guestFavorite: false,
     description: "This luxurious cabin in VGC offers a stylish, modern retreat. Located on the Island Road, it provides a peaceful escape amidst the city's energy. The beautifully furnished living area is designed for relaxation, offering a taste of sophisticated urban living. Onsite support staff are available during specified hours for assistance.",
-    hostname: "Kally",
+    topTen: true,
     amenities: ["Air conditioning", "Gym", "Washer", "Kitchen", "TV", "Workspace", "Heating", "Coffee maker", "Free parking", "Pool", "Parking space"],
     details: {
       bedrooms: 3,
@@ -336,6 +373,14 @@ const homesOnTheIsland = [
       profileImage: "",
       isSuperhost: true,
       yearsOfHosting: 3,
+      rating: 4.85,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      hostImage: "https://images.unsplash.com/photo-1676195470090-7c90bf539b3b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29uJTIwaWNvbnxlbnwwfHwwfHx8MA%3D%3D",
       contact: {
         email: "kally@bnbly.com",
         phone: "+23477888888"
@@ -390,7 +435,7 @@ const stayInIkeja = [
     rating: 4.9,
     guestFavorite: false,
     description: "This luxurious cabin in VGC offers a stylish, modern retreat. Located on the Island Road, it provides a peaceful escape amidst the city's energy. The beautifully furnished living area is designed for relaxation, offering a taste of sophisticated urban living. Onsite support staff are available during specified hours for assistance.",
-    hostname: "Kally",
+    topTen: true,
     amenities: ["Air conditioning", "Gym", "Washer", "Kitchen", "TV", "Workspace", "Heating", "Coffee maker", "Free parking", "Pool", "Parking space"],
     details: {
       bedrooms: 3,
@@ -407,6 +452,14 @@ const stayInIkeja = [
       profileImage: "",
       isSuperhost: true,
       yearsOfHosting: 3,
+      rating: 4.85,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      hostImage: "https://images.unsplash.com/photo-1676195470090-7c90bf539b3b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29uJTIwaWNvbnxlbnwwfHwwfHx8MA%3D%3D",
       contact: {
         email: "kally@bnbly.com",
         phone: "+23477888888"
@@ -449,7 +502,7 @@ const stayInIkeja = [
     rating: 5.0,
     guestFavorite: false,
     description: "This luxurious cabin in VGC offers a stylish, modern retreat. Located on the Island Road, it provides a peaceful escape amidst the city's energy. The beautifully furnished living area is designed for relaxation, offering a taste of sophisticated urban living. Onsite support staff are available during specified hours for assistance.",
-    hostname: "Kally",
+    topTen: true,
     amenities: ["Air conditioning", "Gym", "Washer", "Kitchen", "TV", "Workspace", "Heating", "Coffee maker", "Free parking", "Pool", "Parking space"],
     details: {
       bedrooms: 3,
@@ -466,6 +519,14 @@ const stayInIkeja = [
       profileImage: "",
       isSuperhost: true,
       yearsOfHosting: 3,
+      rating: 4.85,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      hostImage: "https://images.unsplash.com/photo-1676195470090-7c90bf539b3b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29uJTIwaWNvbnxlbnwwfHwwfHx8MA%3D%3D",
       contact: {
         email: "kally@bnbly.com",
         phone: "+23477888888"
@@ -510,7 +571,7 @@ const availableNextMonthMainland = [
     rating: 4.9,
     guestFavorite: false,
     description: "This luxurious cabin in VGC offers a stylish, modern retreat. Located on the Island Road, it provides a peaceful escape amidst the city's energy. The beautifully furnished living area is designed for relaxation, offering a taste of sophisticated urban living. Onsite support staff are available during specified hours for assistance.",
-    hostname: "Kally",
+    topTen: true,
     amenities: ["Air conditioning", "Gym", "Washer", "Kitchen", "TV", "Workspace", "Heating", "Coffee maker", "Free parking", "Pool", "Parking space"],
     details: {
       bedrooms: 3,
@@ -527,6 +588,14 @@ const availableNextMonthMainland = [
       profileImage: "",
       isSuperhost: true,
       yearsOfHosting: 3,
+      rating: 4.85,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      hostImage: "https://images.unsplash.com/photo-1676195470090-7c90bf539b3b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29uJTIwaWNvbnxlbnwwfHwwfHx8MA%3D%3D",
       contact: {
         email: "kally@bnbly.com",
         phone: "+23477888888"
@@ -569,7 +638,7 @@ const availableNextMonthMainland = [
     rating: 5.0,
     guestFavorite: false,
     description: "This luxurious cabin in VGC offers a stylish, modern retreat. Located on the Island Road, it provides a peaceful escape amidst the city's energy. The beautifully furnished living area is designed for relaxation, offering a taste of sophisticated urban living. Onsite support staff are available during specified hours for assistance.",
-    hostname: "Kally",
+    topTen: true,
     amenities: ["Air conditioning", "Gym", "Washer", "Kitchen", "TV", "Workspace", "Heating", "Coffee maker", "Free parking", "Pool", "Parking space"],
     details: {
       bedrooms: 3,
@@ -586,6 +655,14 @@ const availableNextMonthMainland = [
       profileImage: "",
       isSuperhost: true,
       yearsOfHosting: 3,
+      rating: 4.85,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      hostImage: "https://images.unsplash.com/photo-1676195470090-7c90bf539b3b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29uJTIwaWNvbnxlbnwwfHwwfHx8MA%3D%3D",
       contact: {
         email: "kally@bnbly.com",
         phone: "+23477888888"
@@ -631,7 +708,7 @@ const availableNextMonthIsland = [
     rating: 4.9,
     guestFavorite: false,
     description: "This luxurious cabin in VGC offers a stylish, modern retreat. Located on the Island Road, it provides a peaceful escape amidst the city's energy. The beautifully furnished living area is designed for relaxation, offering a taste of sophisticated urban living. Onsite support staff are available during specified hours for assistance.",
-    hostname: "Kally",
+    topTen: true,
     amenities: ["Air conditioning", "Gym", "Washer", "Kitchen", "TV", "Workspace", "Heating", "Coffee maker", "Free parking", "Pool", "Parking space"],
     details: {
       bedrooms: 3,
@@ -648,6 +725,14 @@ const availableNextMonthIsland = [
       profileImage: "",
       isSuperhost: true,
       yearsOfHosting: 3,
+      rating: 4.85,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      hostImage: "https://images.unsplash.com/photo-1676195470090-7c90bf539b3b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29uJTIwaWNvbnxlbnwwfHwwfHx8MA%3D%3D",
       contact: {
         email: "kally@bnbly.com",
         phone: "+23477888888"
@@ -690,7 +775,7 @@ const availableNextMonthIsland = [
     rating: 5.0,
     guestFavorite: false,
     description: "This luxurious cabin in VGC offers a stylish, modern retreat. Located on the Island Road, it provides a peaceful escape amidst the city's energy. The beautifully furnished living area is designed for relaxation, offering a taste of sophisticated urban living. Onsite support staff are available during specified hours for assistance.",
-    hostname: "Kally",
+    topTen: true,
     amenities: ["Air conditioning", "Gym", "Washer", "Kitchen", "TV", "Workspace", "Heating", "Coffee maker", "Free parking", "Pool", "Parking space"],
     details: {
       bedrooms: 3,
@@ -707,6 +792,14 @@ const availableNextMonthIsland = [
       profileImage: "",
       isSuperhost: true,
       yearsOfHosting: 3,
+      rating: 4.85,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      reviews: 385,
+      responseRate: 100,
+      responseHour: 1,
+      hostImage: "https://images.unsplash.com/photo-1676195470090-7c90bf539b3b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29uJTIwaWNvbnxlbnwwfHwwfHx8MA%3D%3D",
       contact: {
         email: "kally@bnbly.com",
         phone: "+23477888888"
