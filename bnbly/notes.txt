@@ -51,3 +51,49 @@ Set Up Firebase in React-Vite
         npm run dev
 
 
+Users Authentication Set up
+    Step-by-Step Firebase Auth Setup (Email & Password)
+    1. Enable Firebase Auth in Console
+        Go to Firebase Console
+        Choose project (bnbly)
+        Go to Build > Authentication > Sign-in Method
+        Enable Email/Password provider.
+    2. Add auth to firebase.js file
+        import { getAuth } from 'firebase/auth';
+        const auth = getAuth(app);
+        export { auth };
+    3.  Create Sign Up & Login Pages with appropraite functions using useState where needed.
+            Signup.jsx - createUserWithEmailAndPassword(auth, email, password);
+            Login.jsx - signInWithEmailAndPassword(auth, email, password);
+    4. Create Routes for login and signup in App.jsx
+            import { useState } from 'react';
+            import { auth } from '../firebase/firebaseConfig';
+            import { createUserWithEmailAndPassword } from 'firebase/auth';
+
+            const Signup = () => {
+                const [email, setEmail] = useState('');
+                const [password, setPassword] = useState('');
+                const [error, setError] = useState('');
+
+                const handleSignup = async (e) => {
+                    e.preventDefault();
+                    try {
+                    await createUserWithEmailAndPassword(auth, email, password);
+                    alert('Signup successful!');
+                    } catch (err) {
+                    setError(err.message);
+                    }
+                };
+                return (
+                    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+                    <form onSubmit={handleSignup} className="bg-white p-8 rounded shadow-md w-80">
+                        <h2 className="text-xl font-semibold mb-4">Sign Up</h2>
+                        {error && <p className="text-red-500">{error}</p>}
+                        <input className="w-full p-2 mb-2 border rounded" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                        <input  className="w-full p-2 mb-2 border rounded" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+                        <button className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"> Sign Up </button>
+                    </form>
+                    </div>
+                );
+            };
+            export default Signup;

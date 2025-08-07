@@ -10,14 +10,14 @@ const MainNavigation = () => {
     <header className="shadow-md bg-white">
       <nav className="flex items-center justify-between max-w-7xl mx-auto px-6 py-6">
         
-        <Link to="/home" className="text-red-500 text-xl font-bold hidden sm:block">
+        <Link to="/" className="text-red-500 text-xl font-bold hidden sm:block">
           bnbly
         </Link>
 
         <ul className="flex space-x-6 text-gray-700 font-medium">
           <li className="flex items-center space-x-1">
             <FcHome />
-            <NavLink to="/home" className={navLinkStyle} end>Homes</NavLink>
+            <NavLink to="/homes" className={navLinkStyle} end>Homes</NavLink>
           </li>
           <li className="flex items-center space-x-1">
             <FcAreaChart />
@@ -34,7 +34,10 @@ const MainNavigation = () => {
             <NavLink to="/host" className="hover:text-black transition">Become a Host</NavLink>
           </li>
           <li>
-            <NavLink to="/login" className="hover:text-black transition">Login or Sign up</NavLink>
+            <NavLink to="/login" className="hover:text-black transition">Login</NavLink>
+          </li>
+          <li>
+            <NavLink to="/signup" className="hover:text-black transition">Sign up</NavLink>
           </li>
         </ul>
 
