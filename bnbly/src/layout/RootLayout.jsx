@@ -3,17 +3,20 @@ import MainNavigation from '../components/MainNavigation';
 import Footer from '../components/Footer';
 import { Outlet } from 'react-router-dom';
 import ScrollToTop from '../components/ScrollToTop';
+import { AuthProvider } from '../context/AuthContext';
 
 const RootLayout = () => {
 
   return (
     <>
-    <ScrollToTop/>
-    <MainNavigation />
-    <main>
-      <Outlet/>
-    </main>
-    <Footer />
+    <AuthProvider>
+      <ScrollToTop/>
+      <MainNavigation />
+      <main>
+        <Outlet/>
+      </main>
+      <Footer />
+    </AuthProvider>
     </>
   )
 }

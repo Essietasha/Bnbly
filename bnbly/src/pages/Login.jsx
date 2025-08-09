@@ -22,7 +22,7 @@ const Login = () => {
       setError('Please fill in both fields.');
       setLoading(false);
       return;
-    }
+    };
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
@@ -61,8 +61,7 @@ const Login = () => {
             placeholder="••••••••"
             value={password}
             onChange={(e) => setPassword(e.target.value)} autoComplete="current-password" required />
-          <button type="button"
-            className="absolute right-2 top-9 text-gray-500 hover:text-gray-700"
+          <button type="button" className="absolute right-2 top-9 text-gray-500 hover:text-gray-700"
             onClick={() => setShowPassword(!showPassword)} >
             {showPassword ? <AiFillEyeInvisible size={20} /> : <AiFillEye size={20} />}
           </button>

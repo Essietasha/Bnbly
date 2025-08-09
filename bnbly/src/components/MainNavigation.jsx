@@ -1,10 +1,15 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { FcHome, FcAreaChart, FcSelfServiceKiosk } from "react-icons/fc";
+import { useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 
 const MainNavigation = () => {
+
+  const { user, logout } = useContext(AuthContext);
+
   const navLinkStyle = ({ isActive }) =>
-    isActive ? "text-red-500 font-semibold border-b-2 border-red-500 pb-1" : "hover:text-black transition";
+    isActive ? "text-black font-semibold border-b-2 border-black-500" : "hover:text-black transition";
 
   return (
     <header className="shadow-md bg-white">
@@ -33,12 +38,19 @@ const MainNavigation = () => {
           <li>
             <NavLink to="/host" className="hover:text-black transition">Become a Host</NavLink>
           </li>
-          <li>
-            <NavLink to="/login" className="hover:text-black transition">Login</NavLink>
-          </li>
-          <li>
-            <NavLink to="/signup" className="hover:text-black transition">Sign up</NavLink>
-          </li>
+
+        { user ? 
+          (
+            <li>
+              <button onClick={logout} className="text-red-500 px-4 cursor-pointer">Logout</button>
+            </li>
+          ) : 
+          (
+            <li>
+              <NavLink to="/login" className="hover:text-black transition">Login or Sign up</NavLink>
+            </li>
+          )
+        }
         </ul>
 
       </nav>
@@ -47,61 +59,3 @@ const MainNavigation = () => {
 };
 
 export default MainNavigation;
-
-
-// import React from 'react';
-// import { NavLink, Link } from 'react-router-dom';
-// import classes from './MainNavigation.module.css';
-// import { HiHomeModern } from "react-icons/hi2";
-// import { FcHome } from "react-icons/fc";
-// import { FcAreaChart  } from "react-icons/fc";
-// import { FcSelfServiceKiosk  } from "react-icons/fc";
-
-// const MainNavigation = () => {
-    
-//     const isActive = ({ isActive }) => isActive ? classes.active : undefined;
-
-//     return (
-//         <>
-//     <header>
-//         <nav className={classes.navFlex}>
-//             <div>
-//                 <Link to="home" className={classes.logo} > 
-//                     <HiHomeModern />
-//                     <h5>bnbly</h5>
-//                 </Link>
-//             </div>
-//             <div className={classes.links}>
-//                 <ul>
-//                     <li>
-//                         <FcHome/> 
-//                         <NavLink to='home' className={isActive} end> Homes </NavLink>
-//                     </li>
-//                     <li>
-//                         <FcAreaChart />
-//                         <NavLink to='experiences' className={isActive}> Experiences </NavLink>
-//                     </li>
-//                     <li>
-//                         <FcSelfServiceKiosk />
-//                         <NavLink to='services' className={isActive}> Services </NavLink>
-//                     </li>
-//                 </ul>
-//             </div>
-
-//             <div className={classes.moreLinks}>
-//                 <ul>
-//                     <li>
-//                         <NavLink to='services'> Become a Host </NavLink>
-//                     </li>
-//                     <li>
-//                         <NavLink to='services'> Login or Sign up </NavLink>
-//                     </li>
-//                 </ul>
-//             </div>
-//         </nav>
-//     </header>
-//     </>
-//   )
-// }
-
-// export default MainNavigation;

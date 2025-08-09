@@ -97,3 +97,37 @@ Users Authentication Set up
                 );
             };
             export default Signup;
+
+onAuthStateChanged is Firebase’s built-in listener that watches the authentication status of the user in real time.
+    What it does
+    It runs a callback every time the user’s sign-in state changes.
+    onAuthStateChanged listens for login/logout changes and runs the app code when the user signs in, signs out, or reloads the page, so the UI always matches the current auth state.
+    onAuthStateChanged can be thought of like a security guard at the door of an app.
+        Whenever someone enters (logs in) or leaves (logs out), the guard immediately tells who’s inside.
+        It keeps watching, even if the page reloads, so we always know if a user is logged in or not.
+    We think of it like turning off the TV when we leave the room, otherwise, it keeps running even if we’re not watching.
+    
+    Possible triggers:
+        User logs in 
+        User logs out 
+        Page refresh (it restores the session if the user was already signed in)
+        Firebase finishes loading initial auth state
+
+    Why it’s important
+        Without onAuthStateChanged, the app wouldn’t know whether the user is:
+        Already logged in when they reload the page
+        Just signed out from another tab
+        Or signed in from a different device
+        It basically keeps the UI in sync with Firebase Auth in real time.
+
+    How it works:
+        We reload the page ? onAuthStateChanged immediately checks if there’s a logged-in user from Firebase’s memory.
+        If the user logs in or logs out, the state updates instantly.
+        No need to manually check every time. It’s like automatic login detection.
+    The stopAuthListener variable is just a clean-up function that Firebase gives us.
+        Here’s why it’s there: When we call: onAuthStateChanged(auth, callback)
+        Firebase starts listening in the background for changes in the login state.
+        If we leave the page or unmount the component, we should stop listening, otherwise, it keeps running, wastes memory, and might cause bugs.
+        Firebase returns a function that stops the listener, we store it in unsubscribe so we can call it later inside:
+        return () => stopAuthListener();
+    It’s specifically for tracking Firebase Authentication state changes. It only works for users who are signed in through Firebase Auth.

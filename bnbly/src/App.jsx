@@ -4,6 +4,7 @@ import RootLayout from './layout/RootLayout';
 import HomePage from './pages/Homepage';
 import Signup from './pages/SignUp';
 import Login from './pages/Login';
+import ProtectedRoutes from './components/ProtectedRoutes';
 import RoomCollectionPage from './pages/RoomCollectionPage';
 import RoomDetailPage from './pages/RoomDetailPage';
 import { roomsLoader } from './loaders/roomsLoader';

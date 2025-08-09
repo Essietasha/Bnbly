@@ -8,15 +8,29 @@ import { useNavigate } from 'react-router-dom';
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
-  
+
   const handleSignup = async (e) => {
     e.preventDefault();
     setError('');
     setLoading(true);
+
+    if (!email || !password) {
+      setError('Please fill in both fields.');
+      setLoading(false);
+      return;
+    };
+
+    if(password !== confirmPassword) {
+      setError('Passwords do not match!');
+      setLoading(false);
+      return;
+    };
+
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       alert('Signup successful!');
@@ -56,6 +70,13 @@ const Signup = () => {
             value={password} onChange={(e) => setPassword(e.target.value)} required autoComplete="new-password"/>
         </div>
 
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-gray-700">Confirm Password</label>
+          <input type="password"
+            className="mt-1 w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+            value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+        </div>
+
         <button type="submit" disabled={loading}
           className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded transition duration-300 disabled:opacity-50">
           {loading ? 'Creating Account...' : 'Sign Up'}
@@ -70,3 +91,7 @@ const Signup = () => {
 };
 
 export default Signup;
+// Integrate sign in / sign out / protected routes next
+// Auth guard for protected pages?
+
+// A user context for logged-in user info?

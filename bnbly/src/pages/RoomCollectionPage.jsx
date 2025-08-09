@@ -5,12 +5,14 @@ import RoomCard from '../components/Roomcard';
 const RoomCollectionPage = () => {
     const formatCollectionName = (name) => {
     if (!name) return '';
-    return name.replace(/([A-Z])/g, ' $1').trim();
+    return name.replace(/([A-Z])/g, ' $1').trim(); // Find every capital letter (A–Z) and put a space before it.
     };
 
     const rooms = useLoaderData();
-    const { collectionName } = useParams();
-    
+    // const params = useParams();
+    // const collectionName = params.collectionName;
+    const { collectionName } = useParams(); //useParams() returns an object containing all the dynamic URL parameters from the current route.
+    //  path='rooms/:collectionName' - rooms/popularHomes - { collectionName: "popularHomes" }
   return (
     <div className="p-6">
       <h1 className="text-[1.2rem] font-bold capitalize mb-4">
@@ -31,7 +33,7 @@ const RoomCollectionPage = () => {
 export default RoomCollectionPage;
 
 // Here..........
-// roomsLoader fetches the correct collection dynamically.
+// roomsLoader function in loaders fetches the correct collection dynamically.
 // RoomCollectionPage receives it via useLoaderData() and can display it dynamically using useParams() to get the name.
 // I have linked to it dynamically from the RoomList in the HomePage via <Link to={/rooms/${collectionName}}>
 // And the dynamic path set in the App route.
