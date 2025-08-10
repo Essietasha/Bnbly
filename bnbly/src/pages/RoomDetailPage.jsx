@@ -1,17 +1,71 @@
 import { useLoaderData } from "react-router-dom";
 import { GiCheckMark } from "react-icons/gi";
 import { IoIosCheckmarkCircle } from "react-icons/io";
-import { FaLeaf } from "react-icons/fa";
+import { FaLeaf, FaHeart } from "react-icons/fa";
 import { BsFillTrophyFill } from "react-icons/bs";
 import LinksNavigation from "../components/LinksNavigation";
+import { useContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { db } from "../firebase/firebaseConfig";
+import { doc, setDoc, getDoc, deleteDoc } from "firebase/firestore";
 
 const RoomDetailsPage = () => {
-  const room = useLoaderData();
+    const room = useLoaderData();
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const [isFav, setIsFav] = useState(false);
+
+    useEffect(() => {
+        if (!user) {
+          setIsFav(false);
+          return;
+        }
+        const checkFavorite = async () => {
+          const favRef = doc(db, "users", user.uid, "favorites", room.id);
+          const favSnap = await getDoc(favRef);
+          setIsFav(favSnap.exists());
+        };
+        checkFavorite();
+    }, [user, room.id]);
+
+
+    const toggleFavorite = async () => {
+        if (!user) {
+          navigate("/login");
+          return;
+        }
+        const favRef = doc(db, "users", user.uid, "favorites", room.id);
+        if (isFav) {
+          await deleteDoc(favRef);
+          setIsFav(false);
+        } else {
+          await setDoc(favRef, {
+            name: room.name,
+            price: room.price,
+            image: room.image,
+            rating: room.rating,
+            topTen: room.topTen || false,
+          });
+          setIsFav(true);
+        }
+    };
 
   return (
     <>
-    <div className="px-8 py-2 max-w-7xl mx-auto space-y-4">
-      <h1 className="text-3xl font-semibold mb-6">{room.name}</h1>
+    <div className="px-8 py-2 max-w-7xl mx-auto space-y-4 mt-4">
+      <div className="flex items-center justify-between mt-4">
+        <h1 className="text-3xl font-semibold">{room.name}</h1>
+        <div className="flex items-center gap-4">
+          <button onClick={toggleFavorite} className="text-red-500">
+            <FaHeart fill={isFav ? "red" : "grey"} size={22} />
+          </button>
+          <Link to="/myfavorites" className="underline">
+            My Favorites
+          </Link>
+        </div>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <img

@@ -5,6 +5,7 @@ import HomePage from './pages/Homepage';
 import Signup from './pages/SignUp';
 import Login from './pages/Login';
 import ProtectedRoutes from './components/ProtectedRoutes';
+import MyFavorites from './pages/MyFavorites';
 import RoomCollectionPage from './pages/RoomCollectionPage';
 import RoomDetailPage from './pages/RoomDetailPage';
 import { roomsLoader } from './loaders/roomsLoader';
@@ -18,6 +19,7 @@ const App = () => {
           <Route path='homes' element={<HomePage />} />
           <Route path='signup' element={<Signup />} />
           <Route path='login' element={<Login />} />
+          <Route path='myfavorites' element={<MyFavorites />} />
           <Route path='rooms/:collectionName' element={<RoomCollectionPage />} loader={roomsLoader} />
           <Route path='rooms/:collectionName/:roomId' element={<RoomDetailPage />} loader={roomDetailLoader} />
         </Route>

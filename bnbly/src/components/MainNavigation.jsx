@@ -30,7 +30,7 @@ const MainNavigation = () => {
           </li>
           <li className="flex items-center space-x-1">
             <FcSelfServiceKiosk />
-            <NavLink to="/services" className={navLinkStyle}>Services</NavLink>
+            <NavLink to="/myfavorites" className={navLinkStyle}>My List</NavLink>
           </li>
         </ul>
 
