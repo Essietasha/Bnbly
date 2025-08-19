@@ -24,6 +24,9 @@ const MainNavigation = () => {
             <FcHome />
             <NavLink to="/homes" className={navLinkStyle} end>Homes</NavLink>
           </li>
+          <li>
+            <NavLink to="/apartments" className={navLinkStyle} end>Apartments</NavLink>
+          </li>
           <li className="flex items-center space-x-1">
             <FcAreaChart />
             <NavLink to="/experiences" className={navLinkStyle}>Experiences</NavLink>
@@ -36,9 +39,11 @@ const MainNavigation = () => {
 
         <ul className="hidden sm:flex space-x-4 text-gray-800 font-medium">
           <li>
-            <NavLink to="/host" className="hover:text-black transition">Become a Host</NavLink>
+            <NavLink to="/becomehost" className="hover:text-black transition">Become a Host</NavLink>
           </li>
-
+          <li>
+            <NavLink to="/createlisting" className={navLinkStyle}>Create Listing</NavLink>
+          </li>
         { user ? 
           (
             <li>

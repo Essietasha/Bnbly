@@ -11,12 +11,13 @@ import { AuthContext } from "../context/AuthContext";
 import { db } from "../firebase/firebaseConfig";
 import { doc, setDoc, getDoc, deleteDoc } from "firebase/firestore";
 
+
 const RoomDetailsPage = () => {
     const room = useLoaderData();
     const { user } = useContext(AuthContext);
-    const navigate = useNavigate();
     const [isFav, setIsFav] = useState(false);
-
+    const navigate = useNavigate();
+    
     useEffect(() => {
         if (!user) {
           setIsFav(false);

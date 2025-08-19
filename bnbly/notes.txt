@@ -131,3 +131,114 @@ onAuthStateChanged is Firebase’s built-in listener that watches the authentica
         Firebase returns a function that stops the listener, we store it in unsubscribe so we can call it later inside:
         return () => stopAuthListener();
     It’s specifically for tracking Firebase Authentication state changes. It only works for users who are signed in through Firebase Auth.
+
+
+============================================================================================================================================================
+ MY FIREBASE FUNCTIONS CHEAT SHEET
+============================================================================================================================================================
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 1. FUNCTIONS I'VE USED SO FAR
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    [ AUTHENTICATION ]
+    +-------------------------------------------------------+--------------------------------------------+
+    | FUNCTION                                              | PURPOSE                                    |
+    +-------------------------------------------------------+--------------------------------------------+
+    | createUserWithEmailAndPassword(auth, email, password) | Register a new user with email & password. |
+    | signInWithEmailAndPassword(auth, email, password)     | Log in an existing user.                   |
+    | signOut(auth)                                         | Log out the current user.                  |
+    | onAuthStateChanged(auth, callback)                    | Listen in real-time for auth state changes.|
+    | updateProfile(user, { displayName, photoURL })        | Update logged-in user's profile info.      |
+    | updateEmail(user, newEmail)                           | Change the user's email.                   |
+    | updatePassword(user, newPassword)                     | Change the user's password.                |
+    | sendPasswordResetEmail(auth, email)                   | Send a password reset email.               |
+    +--------------------------------------------+-------------------------------------------------------+
+
+    [ FIRESTORE - DATABASE ]
+    +-------------------------------------------------------+---------------------------------------------+
+    | FUNCTION                                              | PURPOSE                                     |
+    +-------------------------------------------------------+---------------------------------------------+
+    | collection(db, 'collectionName')                      | Reference a Firestore collection.           |
+    | doc(db, 'collectionName', 'docId')                    | Reference a Firestore document.             |
+    | getDoc(docRef)                                        | Get a single document (one-time).           |
+    | getDocs(collectionRef)                                | Get all documents in a collection (once).   |
+    | addDoc(collectionRef, data)                           | Add a new document with auto ID.            |
+    | setDoc(docRef, data)                                  | Create/replace a document with custom ID.   |
+    | updateDoc(docRef, data)                               | Update specific fields in a document.       |
+    | deleteDoc(docRef)                                     | Delete a document.                          |
+    | onSnapshot(docRef/collectionRef, callback)            | Listen for real-time doc/collection changes |
+    +--------------------------------------------+--------------------------------------------------------+
+
+    [ STORAGE ]
+    +--------------------------------------------+---------------------------------------------+
+    | FUNCTION                                   | PURPOSE                                     |
+    +--------------------------------------------+---------------------------------------------+
+    | ref()                                      | Reference a file location in Storage.       |
+    | uploadBytes()                              | Upload a file (binary data).                |
+    | getDownloadURL()                           | Get public URL for a file.                  |
+    | deleteObject()                             | Delete a file from Storage.                 |
+    +--------------------------------------------+---------------------------------------------+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 2. IMPORTANT FUNCTIONS TO KNOW
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    [ AUTHENTICATION - ADVANCED ]
+    +--------------------------------------------+---------------------------------------------+
+    | FUNCTION                                   | PURPOSE                                     |
+    +--------------------------------------------+---------------------------------------------+
+    | signInWithPopup(auth, provider)            | OAuth login via popup (Google, GitHub, etc) |
+    | signInWithRedirect(auth, provider)         | OAuth login via redirect.                   |
+    | reauthenticateWithCredential(user, credential) | Re-auth before sensitive actions.       |
+    | deleteUser(user)                               | Delete current user account.            |
+    | getIdToken(user, forceRefresh?)            | Get user’s ID token for secure API calls.   |
+    +--------------------------------------------+---------------------------------------------+
+
+    [ FIRESTORE - ADVANCED ]
+    +--------------------------------------------+---------------------------------------------+
+    | FUNCTION                                   | PURPOSE                                     |
+    +--------------------------------------------+---------------------------------------------+
+    | query()                                    | Build custom queries.                       |
+    | where()                                    | Filter query results.                       |
+    | orderBy()                                  | Sort query results.                         |
+    | limit()                                    | Limit query results.                        |
+    | startAt()/startAfter()                     | Pagination start.                           |
+    | endAt()/endBefore()                        | Pagination end.                             |
+    | serverTimestamp()                          | Use server time for fields.                 |
+    | increment()                                | Atomically update a number.                 |
+    | arrayUnion()/arrayRemove()                 | Atomically update array fields.             |
+    | runTransaction()                           | Safe multi-document updates.                |
+    | writeBatch()                               | Group multiple writes into one commit.      |
+    +--------------------------------------------+---------------------------------------------+
+
+    [ STORAGE - ADVANCED ]
+    +--------------------------------------------+---------------------------------------------+
+    | FUNCTION                                   | PURPOSE                                     |
+    +--------------------------------------------+---------------------------------------------+
+    | uploadBytesResumable()                     | Upload with progress tracking.              |
+    | listAll()                                  | List all files in a folder.                 |
+    +--------------------------------------------+---------------------------------------------+
+
+    [ CLOUD FUNCTIONS - OPTIONAL ]
+    +--------------------------------------------+---------------------------------------------+
+    | FUNCTION                                   | PURPOSE                                     |
+    +--------------------------------------------+---------------------------------------------+
+    | httpsCallable()                            | Call backend Cloud Functions from frontend. |
+    | Firestore Triggers                         | Run code on onCreate/onUpdate/onDelete.     |
+    | Auth Triggers                              | Run code on user create/delete events.      |
+    +--------------------------------------------+---------------------------------------------+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 3. SKILLS CHECKLIST FOR A FIREBASE DEVELOPER
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+    [✔] CRUD operations with Firestore
+    [✔] Real-time listeners (onSnapshot)
+    [✔] Authentication flows (email/password, OAuth, password reset)
+    [✔] File upload & download with Storage
+    [✔] Basic Firestore & Storage Security Rules
+    [✔] (Optional) Cloud Functions for automation
+
+====================================================
+ END OF CHEAT SHEET
+====================================================
