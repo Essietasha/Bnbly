@@ -3,7 +3,7 @@ import { db, auth } from "../firebase/firebaseConfig";
 import { useNavigate } from "react-router-dom";
 import { collection, addDoc, query, where, getDocs, serverTimestamp } from "firebase/firestore";
 import LinksNavigation from "../components/LinksNavigation";
-
+import statesData from "../data/statesData";
 
 const CreateListing = () => {
   const navigate = useNavigate();
@@ -63,6 +63,12 @@ const CreateListing = () => {
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input type="text" name="name" placeholder="name" value={roomData.name} onChange={handleChange} className="border p-2 rounded" required />
         <input type="text" name="location" placeholder="Location" value={roomData.location} onChange={handleChange} className="border p-2 rounded" required />
+        <select name="location" value={roomData.location} onChange={handleChange} className="border p-2 rounded" required>
+          <option value="">Select Location</option>
+          {statesData.map((state) => (
+            <option key={state.key} value={state.label}> {state.label} </option>
+          ))}
+        </select>
         <input type="number" name="price" placeholder="Price" value={roomData.price} onChange={handleChange} className="border p-2 rounded" required />
         <textarea name="description" placeholder="Description" value={roomData.description} onChange={handleChange} className="border p-2 rounded" required />
         <input type="url" name="image" placeholder="Image URL" value={roomData.image} onChange={handleChange} className="border p-2 rounded" />
