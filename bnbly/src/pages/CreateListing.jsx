@@ -62,7 +62,6 @@ const CreateListing = () => {
       <h2 className="text-2xl font-bold mb-4">Create a Listing</h2>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input type="text" name="name" placeholder="name" value={roomData.name} onChange={handleChange} className="border p-2 rounded" required />
-        <input type="text" name="location" placeholder="Location" value={roomData.location} onChange={handleChange} className="border p-2 rounded" required />
         <select name="location" value={roomData.location} onChange={handleChange} className="border p-2 rounded" required>
           <option value="">Select Location</option>
           {statesData.map((state) => (

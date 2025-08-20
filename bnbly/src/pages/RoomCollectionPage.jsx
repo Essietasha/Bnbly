@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
-import RoomCard from '../components/Roomcard';
+import RoomCard from '../components/RoomCard';
 
 const RoomCollectionPage = () => {
     const formatCollectionName = (name) => {

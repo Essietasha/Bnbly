@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { db, auth } from "../firebase/firebaseConfig";
 import { collection, addDoc, query, where, getDocs, serverTimestamp } from "firebase/firestore";
+import { NavLink } from "react-router-dom";
 
 const BecomeHost = () => {
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -23,12 +22,11 @@ const BecomeHost = () => {
 
       if (!querySnapshot.empty) {
         setIsHost(true);
-        navigate("/createlisting");
       }
       setLoading(false);
     };
     checkHost();
-  }, [navigate]);
+  }, );
 
 
   const handleChange = (e) => {
@@ -49,16 +47,22 @@ const BecomeHost = () => {
         createdAt: serverTimestamp(),
       });
       alert("You are now a host!");
-      navigate("/createlisting");
     } catch (error) {
       console.error("Error adding host: ", error);
     }
   };
 
-  if (loading) return <p className="flex items-center justify-center h-lvh">Loading host status...</p>;
-
-  if (isHost) return null; // avoids showing form flicker before redirect
-
+  if (loading) return <p className="flex items-center justify-center h-lvh text-blue-600">Loading host status...</p>;
+  if (isHost) {
+    return (
+      <div className="flex flex-col items-center justify-center h-lvh">
+        <p className="text-green-600">You're already a host!</p>
+        <NavLink to="/createlisting" className="font-semibold mt-4 px-4 py-2 border border-b-gray-800 bg-black text-white">
+          Create a Listing
+        </NavLink>
+      </div>
+    );
+}
 
   return (
     <div className="pt-12 pb-6 max-w-lg mx-auto px-6">
