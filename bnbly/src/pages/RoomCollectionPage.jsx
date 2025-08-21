@@ -9,10 +9,12 @@ const RoomCollectionPage = () => {
     };
 
     const rooms = useLoaderData();
-    // const params = useParams();
-    // const collectionName = params.collectionName;
-    const { collectionName } = useParams(); //useParams() returns an object containing all the dynamic URL parameters from the current route.
+
+    const { collectionName } = useParams(); 
+    //useParams() returns an object containing all the dynamic URL parameters from the current route.
     //  path='rooms/:collectionName' - rooms/popularHomes - { collectionName: "popularHomes" }
+  
+  
   return (
     <div className="p-6">
       <h1 className="text-[1.2rem] font-bold capitalize mb-4">

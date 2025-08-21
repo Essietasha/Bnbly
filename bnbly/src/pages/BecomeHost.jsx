@@ -7,9 +7,11 @@ const BecomeHost = () => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
+    email: "",
     gender: "",
     phone: "",
-    profileImage: ""
+    profileImage: "",
+    responseHour: ""
   });
   const [loading, setLoading] = useState(true);
   const [isHost, setIsHost] = useState(false);
@@ -28,6 +30,11 @@ const BecomeHost = () => {
     checkHost();
   }, );
 
+  useEffect(() => {
+    if (auth.currentUser?.email){
+      setFormData((prev) => ({...prev, email: auth.currentUser.email}))
+    }
+  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -44,6 +51,8 @@ const BecomeHost = () => {
         rating: 0,
         reviews: 0,
         superHost: false,
+        yearsOfHosting: 0,
+        responseRate: 0,
         createdAt: serverTimestamp(),
       });
       alert("You are now a host!");
@@ -76,6 +85,10 @@ const BecomeHost = () => {
           type="text" name="lastName" placeholder="Last Name"
           value={formData.lastName} onChange={handleChange} className="border p-2 rounded" required
         />
+        <input
+          type="email" name="email" placeholder="Email Address"
+          value={formData.email} onChange={handleChange} className="border p-2 rounded" required disabled={!!auth.currentUser?.email}
+        />
         <select
           name="gender" value={formData.gender} onChange={handleChange} className="border p-2 rounded" required >
             <option value="">Select Gender</option>
@@ -85,6 +98,10 @@ const BecomeHost = () => {
         <input
           type="tel" name="phone" placeholder="Phone Number"
           value={formData.phone} onChange={handleChange} className="border p-2 rounded" required
+        />
+        <input
+          type="number" name="responseHour" placeholder="How soon can you respond to a client?"
+          value={formData.responseHour} onChange={handleChange} className="border p-2 rounded" required
         />
         <input
           type="url" name="profileImage" placeholder="Profile Image URL"

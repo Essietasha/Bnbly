@@ -1,4 +1,4 @@
-const statesData = [
+export const statesData = [
   { key: "abia", label: "Abia" },
   { key: "adamawa", label: "Adamawa" },
   { key: "akwa-ibom", label: "Akwa Ibom" },
@@ -38,4 +38,21 @@ const statesData = [
   { key: "abuja", label: "FCT-Abuja" }
 ];
 
-export default statesData;
+export const amenities = [
+  "WiFi",
+  "Air Conditioning",
+  "Parking",
+  "Swimming Pool",
+  "Gym",
+  "Furnished",
+  "Kitchen",
+  "Pet Friendly",
+  "24/7 Security",
+  "Balcony",
+  "Washer",
+  "TV",
+  "Workspace",
+  "Heating",
+  "Coffee maker",
+  "Pool",
+];
