@@ -100,7 +100,7 @@ const BecomeHost = () => {
           value={formData.phone} onChange={handleChange} className="border p-2 rounded" required
         />
         <input
-          type="number" name="responseHour" placeholder="How soon can you respond to a client?"
+          type="number" name="responseHour" placeholder="In how many hours can you respond to a client?"
           value={formData.responseHour} onChange={handleChange} className="border p-2 rounded" required
         />
         <input

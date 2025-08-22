@@ -11,7 +11,6 @@ import { FaArrowRight } from 'react-icons/fa';
 const RoomList = ({title, collectionName}) => {
     const [rooms, setRooms] = useState([]);
     const [loading, setLoading] = useState(true);
-
     const { user } = useContext(AuthContext);
     const [favIds, setFavIds] = useState([]);
 

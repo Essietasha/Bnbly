@@ -11,10 +11,7 @@ const MyListings = () => {
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        const q = query(
-          collection(db, "apartments"),
-          where("uid", "==", auth.currentUser.uid)
-        );
+        const q = query(collection(db, "apartments"), where("hostId", "==", auth.currentUser.uid));
         const querySnapshot = await getDocs(q);
 
         const userListings = querySnapshot.docs.map((doc) => ({

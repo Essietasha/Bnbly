@@ -13,7 +13,6 @@ const MyFavorites = () => {
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Redirect if not logged in
   useEffect(() => {
     if (!user) {
       navigate("/login");
@@ -64,8 +63,8 @@ const MyFavorites = () => {
 
   return (
     <>
-    <div className="p-6">
-      <h1 className="text-xl font-semibold mb-6">My Favorites</h1>
+    <div className="px-6 py-12">
+      <h1 className="text-xl font-semibold mb-3">My Favorites</h1>
       {favorites.length === 0 ? (
         <div>
             <p className="text-gray-500">You haven’t added any favorites yet.</p>

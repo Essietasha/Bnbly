@@ -33,7 +33,7 @@ const MainNavigation = () => {
           </li>
           <li className="flex items-center space-x-1">
             <FcSelfServiceKiosk />
-            <NavLink to="/myfavorites" className={navLinkStyle}>My List</NavLink>
+            <NavLink to="/myfavorites" className={navLinkStyle}>Favorites</NavLink>
           </li>
         </ul>
 
@@ -45,10 +45,14 @@ const MainNavigation = () => {
             <NavLink to="/createlisting" className={navLinkStyle}>Create Listing</NavLink>
           </li>
         { user ? 
-          (
+          (<>
+            <li>
+              <NavLink to="/mylistings" className="hover:text-black transition">My Listings</NavLink>
+            </li>
             <li>
               <button onClick={logout} className="text-red-500 px-4 cursor-pointer">Logout</button>
             </li>
+            </>
           ) : 
           (
             <li>

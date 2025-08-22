@@ -1,7 +1,7 @@
 import './App.css'
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import RootLayout from './layout/RootLayout';
-import HomePage from './pages/Homepage';
+import HomePage from './pages/HomePage';
 import Signup from './pages/SignUp';
 import Login from './pages/Login';
 import ProtectedRoutes from './components/ProtectedRoutes';
