@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { auth } from '../firebase/firebaseConfig';
+import { getDoc, setDoc, doc, serverTimestamp } from "firebase/firestore";
+import { auth, db } from '../firebase/firebaseConfig';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { FaUserPlus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -32,7 +33,21 @@ const Signup = () => {
     };
 
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      const userRef = doc(db, "users", user.uid);
+      const userSnap = await getDoc(userRef);
+      
+      // create a Firestore doc for this user only if it doesn't exist
+      if (!userSnap.exists()) {
+        await setDoc(userRef, {
+          email: user.email,
+          createdAt: serverTimestamp(),
+          isHost: false,
+        });
+      };
+
       alert('Signup successful!');
       setEmail('');
       setPassword('');

@@ -10,6 +10,9 @@ const MyListings = () => {
 
   useEffect(() => {
     const fetchListings = async () => {
+
+      if (!auth.currentUser) return;
+      
       try {
         const q = query(collection(db, "apartments"), where("hostId", "==", auth.currentUser.uid));
         const querySnapshot = await getDocs(q);

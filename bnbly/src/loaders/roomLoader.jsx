@@ -1,10 +1,11 @@
 import { db } from '../firebase/firebaseConfig';
 import { doc, getDoc } from 'firebase/firestore';
 
-export const roomDetailLoader = async ({ params }) => {
-  const { roomId } = params;
+export const roomLoader = async ({ params }) => {
+  const { collectionName, roomId } = params;
+
   try {
-    const docRef = doc(db, "apartments", roomId);
+    const docRef = doc(db, collectionName, roomId);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {

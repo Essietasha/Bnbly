@@ -4,11 +4,17 @@ import { collection, getDocs } from "firebase/firestore";
 import RoomCard from "../components/RoomCard";
 import LinksNavigation from "../components/LinksNavigation";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from "react";
+
 
 const Apartments = () => {
   const [apartments, setApartments] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const { user } = useContext(AuthContext);
+  const [favIds, setFavIds] = useState([]);
+  
   useEffect(() => {
     const fetchRooms = async () => {
       try {
@@ -26,6 +32,27 @@ const Apartments = () => {
     };
     fetchRooms();
   }, []);
+
+    useEffect(() => {
+    const fetchFavorites = async () => {
+      if (!user) {
+        setFavIds([]);
+        return;
+      }
+      const favRef = collection(db, "users", user.uid, "favorites");
+      const favSnap = await getDocs(favRef);
+      setFavIds(favSnap.docs.map(doc => doc.id));
+    };
+
+    fetchFavorites();
+  }, [user]);
+
+  // Handler to update favorites instantly in UI
+  const updateFavState = (roomId, isAdding) => {
+    setFavIds(prev =>
+      isAdding ? [...prev, roomId] : prev.filter(id => id !== roomId)
+    );
+  };
   
   if (loading) {
     return <p className="flex items-center justify-center h-lvh">Loading...</p>;
@@ -49,7 +76,9 @@ const Apartments = () => {
           <RoomCard
               key={apartment.id}
               room={apartment}
-              collectionName="apartments" 
+              collectionName="apartments"
+              isFav={favIds.includes(apartment.id)}
+              onFavChange={updateFavState}
           />
         ))}
       </div>

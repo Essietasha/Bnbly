@@ -1,23 +1,49 @@
-import { useLoaderData } from "react-router-dom";
+import { useContext, useState, useEffect } from "react";
+import { useLoaderData, useNavigate, Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { doc, setDoc, getDoc, deleteDoc } from "firebase/firestore";
+import { db } from "../firebase/firebaseConfig";
 import { GiCheckMark } from "react-icons/gi";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import { FaLeaf, FaHeart } from "react-icons/fa";
 import { BsFillTrophyFill } from "react-icons/bs";
 import LinksNavigation from "../components/LinksNavigation";
-import { useContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
-import { db } from "../firebase/firebaseConfig";
-import { doc, setDoc, getDoc, deleteDoc } from "firebase/firestore";
 
 
 const RoomDetailsPage = () => {
     const room = useLoaderData();
     const { user } = useContext(AuthContext);
+    const [host, setHost] = useState(null);
     const [isFav, setIsFav] = useState(false);
     const navigate = useNavigate();
-    
+
+
+  useEffect(() => {
+    if (!room.hostId) return;
+
+    const fetchHost = async () => {
+      const hostRef = doc(db, "hosts", room.hostId);
+      const hostSnap = await getDoc(hostRef);
+      if (hostSnap.exists()) {
+        setHost(hostSnap.data());
+      } else {
+        setHost({
+          name: "Unknown Host",
+          isSuperhost: false,
+          reviews: 0,
+          rating: 0,
+          yearsOfHosting: 0,
+          responseRate: 0,
+          responseHour: 0,
+          hostImage: "",
+        });
+      }
+    };
+
+    fetchHost();
+  }, [room.hostId]);
+
+
     useEffect(() => {
         if (!user) {
           setIsFav(false);
@@ -53,6 +79,9 @@ const RoomDetailsPage = () => {
         }
     };
 
+    if (!room) return <p className="text-center mt-10">Loading room details...</p>;
+    if (!host) return <p className="text-center mt-10">Loading host details...</p>;
+
   return (
     <>
     <div className="px-8 py-2 max-w-7xl mx-auto space-y-4 mt-4">
@@ -83,10 +112,10 @@ const RoomDetailsPage = () => {
       </div>
 
       <div className="px-1"> 
-        { room.thingsToKnow.maximumGuest } Guests • <span></span>
-        { room.details.bedrooms } Bedrooms • <span></span>
-        { room.details.beds } beds • <span></span>
-        { room.details.baths } baths
+        { room.maximumGuest } Guests • <span></span>
+        { room.bedrooms } Bedrooms • <span></span>
+        { room.beds } beds • <span></span>
+        { room.baths } baths
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -119,6 +148,9 @@ const RoomDetailsPage = () => {
             }
             <h1 className="text-2xl mt-6 font-medium">About this place</h1>
             <p className="mb-1 mt-2">{room.description}</p>
+            <p className="mb-1 mt-2">Location: {room.location}</p>
+            <p className="mb-1 mt-2">Address: {room.address}</p>
+            <p className="mb-1 mt-2">City: {room.city}</p>
           </div>
 
           <button className="bg-black text-white rounded-lg px-6 py-2 hover:bg-gray-800 w-fit self-start mt-2">
@@ -127,11 +159,11 @@ const RoomDetailsPage = () => {
         </div>
 
         <div className="border-t border-gray-300 pt-6">
-          <h3 className="text-2xl font-medium mb-2">Hosted by {room.host.name}</h3>
+          <h3 className="text-2xl font-medium mb-2">Hosted by {host.firstName}</h3>
           <div>
-            {room.host.isSuperhost && <h3 className="text-green-950 text-sm font-bold mb-1 flex items-center gap-2"> <span className="text-green-700"><IoIosCheckmarkCircle/></span> Super Host</h3>}
+            {host.isSuperhost && <h3 className="text-green-950 text-sm font-bold mb-1 flex items-center gap-2"> <span className="text-green-700"><IoIosCheckmarkCircle/></span> Super Host</h3>}
           </div>
-          <p> {room.host.yearsOfHosting } years of hosting</p>
+          <p> {host.yearsOfHosting } years of hosting</p>
         </div>
       </div>
 
@@ -161,11 +193,17 @@ const RoomDetailsPage = () => {
         <div>
           <h2 className="text-2xl font-medium mb-4">Things to know</h2>
           <ul className="text-sm text-gray-700 space-y-3">
-            <li><span className="font-semibold">Check-in:</span> {room.thingsToKnow?.checkIn}</li>
-            <li><span className="font-semibold">Check-out:</span> {room.thingsToKnow?.checkOut}</li>
-            <li><span className="font-semibold">Maximum Guest:</span> {room.thingsToKnow?.maximumGuest}</li>
-            <li><span className="font-semibold">Cancellation policy:</span> {room.thingsToKnow?.cancellationPolicy}</li>
-            <li><span className="font-semibold">Safety & Property:</span> {room.thingsToKnow?.safetyAndProperty}</li>
+            <li><span className="font-semibold">Check-in:</span> {room.checkIn}</li>
+            <li><span className="font-semibold">Check-out:</span> {room.checkOut}</li>
+            <li><span className="font-semibold">Cleaning Fee:</span> {room.cleaningFee}</li>
+            <li><span className="font-semibold">Service Fee:</span> {room.serviceFee}</li>
+            <li><span className="font-semibold">Quiet Hours:</span> {room.quietHours}</li>
+            <li><span className="font-semibold">Maximum Guest:</span> {room.maximumGuest}</li>
+            <li><span className="font-semibold">Pets Allowed:</span> {room.petsAllowed}</li>
+            <li><span className="font-semibold">Parties:</span> {room.partiesAllowed}</li>
+            <li><span className="font-semibold">Smoking Allowed:</span> {room.smokingAllowed}</li>
+            <li><span className="font-semibold">Cancellation policy:</span> {room.cancellationPolicy}</li>
+            <li><span className="font-semibold">Safety & Property:</span> {room.safetyAndProperty}</li>
           </ul>
         </div>
 
@@ -187,28 +225,28 @@ const RoomDetailsPage = () => {
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <div className="relative">
             <h1 className="text-2xl font-medium mb-4">Meet your Host</h1>
-            <img src={room.host.hostImage} alt={room.host.name} className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover" />
-            {room.host.isSuperhost && (
+            <img src={host.profileImage} alt={host.firstName} className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover" />
+            {host.isSuperhost && (
               <div className="absolute bottom-2 right-10 bg-pink-600 text-white rounded-full p-1 text-xs"> ✔ </div>
             )}
           </div>
           
-          <h2 className="text-2xl font-medium mt-4">{room.host.name}</h2>
+          <h2 className="text-2xl font-medium mt-4">{host.firstName}</h2>
           <p className="text-sm text-gray-500 flex items-center gap-1">
             <span>🏅</span> Superhost
           </p>
 
           <div className="mt-6 space-y-2 text-sm">
             <div className="flex justify-between border-t pt-2">
-              <span className="font-medium">{room.host.reviews}</span>
+              <span className="font-medium">{host.reviews}</span>
               <span className="text-gray-500">Reviews</span>
             </div>
             <div className="flex justify-between border-t pt-2">
-              <span className="font-medium">{room.host.rating}★</span>
+              <span className="font-medium">{host.rating}★</span>
               <span className="text-gray-500">Rating</span>
             </div>
             <div className="flex justify-between border-t pt-2">
-              <span className="font-medium mr-1">{room.host.yearsOfHosting}</span>
+              <span className="font-medium mr-1">{host.yearsOfHosting}</span>
               <span className="text-gray-500">Years hosting</span>
             </div>
           </div>
@@ -216,7 +254,7 @@ const RoomDetailsPage = () => {
 
         <div className="flex-1 space-y-6">
           <div>
-            <h3 className="text-lg font-medium">{room.host.name} is a Superhost</h3>
+            <h3 className="text-lg font-medium">{host.firstName} is a Superhost</h3>
             <p className="text-gray-600 mt-1">
               Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.
             </p>
@@ -224,10 +262,10 @@ const RoomDetailsPage = () => {
 
           <div>
             <h4 className="text-md font-medium">Host details</h4>
-            <p className="text-gray-600 mt-1">Response rate: {room.host.responseRate}%</p>
-            {room.host.responseHour > 1 ? 
-              <p className="text-gray-600">Responds within {room.host.responseHour} hours</p> 
-              : <p className="text-gray-600">Responds within {room.host.responseHour} hour</p> 
+            <p className="text-gray-600 mt-1">Response rate: {host.responseRate}%</p>
+            {host.responseHour > 1 ? 
+              <p className="text-gray-600">Responds within {host.responseHour} hours</p> 
+              : <p className="text-gray-600">Responds within {host.responseHour} hour</p> 
             }
           </div>
 

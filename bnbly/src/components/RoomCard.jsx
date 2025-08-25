@@ -5,7 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 import { db } from "../firebase/firebaseConfig";
 import { doc, setDoc, deleteDoc } from "firebase/firestore";
 
-const RoomCard = ({ room, collectionName, isFav, onFavChange }) => {
+const RoomCard = ({ room, isFav, collectionName, onFavChange }) => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -27,7 +27,6 @@ const RoomCard = ({ room, collectionName, isFav, onFavChange }) => {
         image: room.image,
         rating: room.rating,
         topTen: room.topTen || false,
-        collectionName,
       });
       onFavChange(room.id, true); // instantly update UI
     }
@@ -35,7 +34,7 @@ const RoomCard = ({ room, collectionName, isFav, onFavChange }) => {
 
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden transition hover:scale-105">
-      <NavLink to={`/rooms/${collectionName}/${room.id}`}>
+      <NavLink to={`/rooms/${room.id}`}>
         <div className="relative">
           {room.topTen && room.rating === 5.0 && (
             <div className="absolute top-2 left-2 bg-gray-100 text-black text-xs font-semibold px-2 py-1 rounded shadow">
@@ -53,7 +52,7 @@ const RoomCard = ({ room, collectionName, isFav, onFavChange }) => {
         <div className="flex justify-between items-start">
           <h2>{room.name}</h2>
           <button onClick={toggleFavorite} className="text-red-500">
-            <FaHeart fill={isFav ? "red" : "grey"} />
+            <FaHeart fill={isFav ? "red" : "grey"} className="cursor-pointer" />
           </button>
         </div>
         <p className="text-sm text-gray-600">${room.price} / night</p>

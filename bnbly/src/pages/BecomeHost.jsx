@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { db, auth } from "../firebase/firebaseConfig";
-import { collection, addDoc, query, where, getDocs, serverTimestamp } from "firebase/firestore";
+import { collection, doc, setDoc, addDoc, query, where, getDoc, serverTimestamp } from "firebase/firestore";
 import { NavLink } from "react-router-dom";
 
 const BecomeHost = () => {
@@ -16,19 +16,34 @@ const BecomeHost = () => {
   const [loading, setLoading] = useState(true);
   const [isHost, setIsHost] = useState(false);
 
+  // useEffect(() => {
+  //   const checkHost = async () => {
+  //     if (!auth.currentUser) return;
+  //     const q = query(collection(db, "hosts"), where("uid", "==", auth.currentUser.uid));
+  //     const querySnapshot = await getDocs(q);
+
+  //     if (!querySnapshot.empty) {
+  //       setIsHost(true);
+  //     }
+  //     setLoading(false);
+  //   };
+  //   checkHost();
+  // }, );
+  
   useEffect(() => {
     const checkHost = async () => {
       if (!auth.currentUser) return;
-      const q = query(collection(db, "hosts"), where("uid", "==", auth.currentUser.uid));
-      const querySnapshot = await getDocs(q);
 
-      if (!querySnapshot.empty) {
+      const docRef = doc(db, "hosts", auth.currentUser.uid);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
         setIsHost(true);
       }
       setLoading(false);
     };
     checkHost();
-  }, );
+  }, []);
 
   useEffect(() => {
     if (auth.currentUser?.email){
@@ -44,7 +59,7 @@ const BecomeHost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await addDoc(collection(db, "hosts"), {
+      await setDoc(doc(db, "hosts", auth.currentUser.uid), {
         ...formData,
         uid: auth.currentUser.uid,
         isHost: true,

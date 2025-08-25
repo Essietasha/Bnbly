@@ -2,7 +2,7 @@ import './App.css'
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import RootLayout from './layout/RootLayout';
 import HomePage from './pages/HomePage';
-import Signup from './pages/SignUp';
+import Signup from './pages/Signup';
 import Login from './pages/Login';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import MyFavorites from './pages/MyFavorites';
@@ -12,8 +12,10 @@ import CreateListing from './pages/CreateListing';
 import MyListings from './pages/MyListings';
 import RoomCollectionPage from './pages/RoomCollectionPage';
 import RoomDetailPage from './pages/RoomDetailPage';
-import { roomsLoader } from './loaders/roomsLoader';
 import { roomDetailLoader } from './loaders/roomDetailLoader';
+import { roomLoader } from './loaders/roomLoader';
+import { roomsLoader } from './loaders/roomsLoader';
+
 
 const App = () => {
     const router = createBrowserRouter(
@@ -21,15 +23,15 @@ const App = () => {
         <Route path='/' element={<RootLayout />}>
           <Route index element={<HomePage />} />
           <Route path='homes' element={<HomePage />} />
-          <Route path='becomehost' element={ <ProtectedRoutes>  <BecomeHost />  </ProtectedRoutes> } />
-          <Route path='createlisting' element={ <ProtectedRoutes> <CreateListing /> </ProtectedRoutes>} />
-          <Route path='apartments' element={<Apartments />} />
+          <Route path='rooms' element={<Apartments />} />
+          <Route path='rooms/:roomId' element={<RoomDetailPage />} loader={roomDetailLoader} />
           <Route path='signup' element={<Signup />} />
           <Route path='login' element={<Login />} />
+
+          <Route path='becomehost' element={ <ProtectedRoutes>  <BecomeHost />  </ProtectedRoutes> } />
+          <Route path='createlisting' element={ <ProtectedRoutes> <CreateListing /> </ProtectedRoutes>} />
           <Route path='myfavorites' element={<ProtectedRoutes> <MyFavorites /> </ProtectedRoutes> } />
           <Route path='mylistings' element={ <ProtectedRoutes> <MyListings /> </ProtectedRoutes> } />
-          <Route path='rooms/:collectionName' element={<RoomCollectionPage />} loader={roomsLoader} />
-          <Route path='rooms/:collectionName/:roomId' element={<RoomDetailPage />} loader={roomDetailLoader} />
         </Route>
     )
   )
