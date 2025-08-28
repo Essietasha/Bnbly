@@ -101,7 +101,7 @@ const RoomDetailsPage = () => {
         <img
           src={room.image}
           alt={room.name}
-          className="w-full h-80 object-cover rounded-xl"
+          className="w-full aspect-video object-cover rounded-xl"
         />
 
         <div className="grid gap-2 sm:grid-cols-2">
@@ -147,10 +147,10 @@ const RoomDetailsPage = () => {
               </div>
             }
             <h1 className="text-2xl mt-6 font-medium">About this place</h1>
-            <p className="mb-1 mt-2">{room.description}</p>
-            <p className="mb-1 mt-2">Location: {room.location}</p>
-            <p className="mb-1 mt-2">Address: {room.address}</p>
-            <p className="mb-1 mt-2">City: {room.city}</p>
+            <p className="mb-2 mt-2">{room.description}</p>
+            <p className="mb-1 mt-2"> <span className="font-semibold">Location:</span> {room.location}</p>
+            <p className="mb-1 mt-2"> <span className="font-semibold">Address:</span> {room.address}</p>
+            <p className="mb-1 mt-2"> <span className="font-semibold">City:</span> {room.city}</p>
           </div>
 
           <button className="bg-black text-white rounded-lg px-6 py-2 hover:bg-gray-800 w-fit self-start mt-2">
@@ -161,7 +161,7 @@ const RoomDetailsPage = () => {
         <div className="border-t border-gray-300 pt-6">
           <h3 className="text-2xl font-medium mb-2">Hosted by {host.firstName}</h3>
           <div>
-            {host.isSuperhost && <h3 className="text-green-950 text-sm font-bold mb-1 flex items-center gap-2"> <span className="text-green-700"><IoIosCheckmarkCircle/></span> Super Host</h3>}
+            {host.superHost && <h3 className="text-green-950 text-sm font-bold mb-1 flex items-center gap-2"> <span className="text-green-700"><IoIosCheckmarkCircle/></span> Super Host</h3>}
           </div>
           <p> {host.yearsOfHosting } years of hosting</p>
         </div>
@@ -270,7 +270,7 @@ const RoomDetailsPage = () => {
           </div>
 
           <button className="bg-gray-100 hover:bg-gray-200 px-5 py-2 rounded-md font-medium cursor-pointer">
-            <a href="//wa.me/+2347018454916" target="blank">Message host</a>
+            <a href={`https://wa.me/${host.phone.replace('+', '')}`}  target="blank">Message host</a>
           </button>
 
           <div className="text-sm text-gray-600 border-t pt-4">
