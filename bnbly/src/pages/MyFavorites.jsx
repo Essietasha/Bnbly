@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { db } from "../firebase/firebaseConfig";
-import { collection, getDocs } from "firebase/firestore";
+import { doc, getDoc, deleteDoc, collection, getDocs } from "firebase/firestore";
 import RoomCard from "../components/RoomCard";
 import LinksNavigation from "../components/LinksNavigation";
 
@@ -26,11 +26,27 @@ const MyFavorites = () => {
       try {
         const favRef = collection(db, "users", user.uid, "favorites");
         const favSnap = await getDocs(favRef);
-        const favRooms = favSnap.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setFavorites(favRooms);
+
+        const validFavs = [];
+
+        for (const favDoc of favSnap.docs) {
+          const favData = favDoc.data();
+          const roomRef = doc(db, "apartments", favDoc.id);
+          const roomSnap = await getDoc(roomRef);
+
+          if (roomSnap.exists()) {
+            // Room still exists; keep it
+            validFavs.push({
+              id: favDoc.id,
+              ...favData,
+            });
+          } else {
+            // Room was deleted from apartments; clean it from favorites
+            await deleteDoc(favDoc.ref);
+          }
+        }
+
+        setFavorites(validFavs);
       } catch (error) {
         console.error("Error fetching favorites:", error);
       } finally {

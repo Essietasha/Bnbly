@@ -11,6 +11,7 @@ import BecomeHost from './pages/BecomeHost';
 import CreateListing from './pages/CreateListing';
 import MyListings from './pages/MyListings';
 import RoomCollectionPage from './pages/RoomCollectionPage';
+import PaymentPage from './pages/PaymentPage';
 import RoomDetailPage from './pages/RoomDetailPage';
 import { roomDetailLoader } from './loaders/roomDetailLoader';
 import { roomLoader } from './loaders/roomLoader';
@@ -27,6 +28,7 @@ const App = () => {
           <Route path='rooms/:roomId' element={<RoomDetailPage />} loader={roomDetailLoader} />
           <Route path='signup' element={<Signup />} />
           <Route path='login' element={<Login />} />
+          <Route path='payment/:reservationId' element={<PaymentPage />} />
 
           <Route path='becomehost' element={ <ProtectedRoutes>  <BecomeHost />  </ProtectedRoutes> } />
           <Route path='createlisting' element={ <ProtectedRoutes> <CreateListing /> </ProtectedRoutes>} />
