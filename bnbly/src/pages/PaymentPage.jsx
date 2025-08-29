@@ -114,6 +114,7 @@ const PaymentPage = () => {
     const cleaningFee = Number(reservation?.room?.cleaningFee);
     const totalPayment = pricePerNight * nights + serviceFee + cleaningFee + taxes;
 
+    
   return (
     <div className="max-w-6xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
       <div className="lg:col-span-2 space-y-6">
@@ -180,7 +181,7 @@ const PaymentPage = () => {
 
         <button
           onClick={handleFakePayment}
-          className="w-full mt-6 bg-gradient-to-r from-pink-500 to-rose-600 text-white py-3 rounded-xl text-lg font-semibold hover:opacity-90 transition"
+          className="w-full mt-6 bg-gradient-to-r from-pink-500 to-rose-600 text-white py-3 rounded-xl text-lg font-semibold cursor-pointer hover:opacity-90 transition"
             > Confirm and Pay
         </button>
       </div>

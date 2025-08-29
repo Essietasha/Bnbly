@@ -1,12 +1,13 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { FcHome, FcAreaChart, FcSelfServiceKiosk } from "react-icons/fc";
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 
 const MainNavigation = () => {
 
   const { user, logout } = useContext(AuthContext);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
   const navLinkStyle = ({ isActive }) =>
     isActive ? "text-black font-semibold border-b-2 border-black-500" : "hover:text-black transition";
@@ -28,24 +29,38 @@ const MainNavigation = () => {
           <li>
             <NavLink to="/experiences" className={navLinkStyle}>Experiences</NavLink>
           </li>
-            <li>
-              <NavLink to="/becomehost" className={navLinkStyle}>Become a Host</NavLink>
-            </li>
+          <li>
+            <NavLink to="/becomehost" className={navLinkStyle}>Become a Host</NavLink>
+          </li>
           { user ? 
             (<>
-            <li>
-              <NavLink to="/myfavorites" className={navLinkStyle}>Favorites</NavLink>
-            </li>
-            <li>
-              <NavLink to="/createlisting" className={navLinkStyle}>Create Listing</NavLink>
-            </li>
-            <li>
-              <NavLink to="/mylistings" className={navLinkStyle}>My Listings</NavLink>
-            </li>
+              <li>
+                <NavLink to="/createlisting" className={navLinkStyle}>Add Listing</NavLink>
+              </li>
+              <li className="relative z-500">
+                <button onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                  className="hover:text-black transition" >
+                  Activities
+                </button>
+
+                {isUserMenuOpen && (
+                  <ul className="absolute mt-2 bg-white shadow-md rounded-md py-2 w-40 right-0">
+                    <li>
+                      <NavLink to="/mylistings" className="block px-4 py-2 hover:bg-gray-100">My Listings</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/myfavorites" className="block px-4 py-2 hover:bg-gray-100">Favorites</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/myreservations" className="block px-4 py-2 hover:bg-gray-100">My Reservations</NavLink>
+                    </li>
+                  </ul>
+                )}
+              </li>
               <li>
                 <button onClick={logout} className="text-red-500 cursor-pointer">Logout</button>
               </li>
-              </>
+            </>
             ) : 
             (
               <li>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { db, auth } from "../firebase/firebaseConfig";
 import { collection, doc, setDoc, addDoc, query, where, getDoc, serverTimestamp } from "firebase/firestore";
 import { NavLink } from "react-router-dom";
@@ -15,6 +16,7 @@ const BecomeHost = () => {
   });
   const [loading, setLoading] = useState(true);
   const [isHost, setIsHost] = useState(false);
+  const navigate = useNavigate();
 
   // useEffect(() => {
   //   const checkHost = async () => {
@@ -71,6 +73,8 @@ const BecomeHost = () => {
         createdAt: serverTimestamp(),
       });
       alert("You are now a host!");
+      navigate("/createlisting");
+      
     } catch (error) {
       console.error("Error adding host: ", error);
     }

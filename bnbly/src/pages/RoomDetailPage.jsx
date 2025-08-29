@@ -19,6 +19,7 @@ const RoomDetailsPage = () => {
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
 
+  console.log("room hostId:", room.hostId);
     useEffect(() => {
       if (!room?.hostId) return;
       const fetchHost = async () => {
@@ -94,8 +95,9 @@ const RoomDetailsPage = () => {
 
         const querySnapshot = await getDocs(q);
         if (!querySnapshot.empty) {
-          // If already has a pending or confirmed reservation
+          const existingReservation = querySnapshot.docs[0];
           alert("You already reserved this room.");
+          navigate(`/payment/${existingReservation.id}`);
           return;
         };
 
@@ -242,7 +244,7 @@ const RoomDetailsPage = () => {
               </div>
 
               <button onClick={handleReserve}
-                className="w-full bg-gradient-to-r from-black to-gray-800 text-white rounded-xl py-3 font-medium hover:from-gray-900 hover:to-black transition-all shadow-md"
+                className="w-full bg-gradient-to-r from-black to-gray-800 text-white rounded-xl py-3 font-medium cursor-pointer hover:from-gray-900 hover:to-black transition-all shadow-md"
                 > Reserve
               </button>
 
