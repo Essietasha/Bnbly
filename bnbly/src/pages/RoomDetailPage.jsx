@@ -19,7 +19,6 @@ const RoomDetailsPage = () => {
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
 
-  console.log("room hostId:", room.hostId);
     useEffect(() => {
       if (!room?.hostId) return;
       const fetchHost = async () => {
@@ -80,7 +79,6 @@ const RoomDetailsPage = () => {
     };
 
     const handleReserve = async () => {
-      console.log("Reserve clicked", { user, roomId: room?.id, startDate, endDate });
         if (!user) {
           alert("Please login to reserve a room.");
           return;
@@ -126,7 +124,6 @@ const RoomDetailsPage = () => {
           navigate(`/payment/${reservationRef.id}`);
         } catch (error) {
           console.error("Error reserving room:", error);
-          console.log("Reserving", { user: user.uid, roomId: room?.id, startDate, endDate });
           alert("Something went wrong. Try again.");
         }
     };

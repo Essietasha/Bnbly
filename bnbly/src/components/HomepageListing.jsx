@@ -26,8 +26,6 @@ const HomepageListing = () => {
           );
           const querySnapshot = await getDocs(q);
           data[loc] = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-          console.log("Querying:", loc);
-          console.log("Docs found:", querySnapshot.size);
         }
         setApartmentsByLocation(data);
       } catch (error) {

@@ -104,7 +104,6 @@ const PaymentPage = () => {
         navigate("/myreservations");
         } catch (error) {
         console.error("Error updating reservation:", error);
-        console.log("Updating reservation", reservationId, "as user", user.uid);
         alert("Something went wrong.");
         }
     };

@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import MyFavorites from './pages/MyFavorites';
 import Apartments from './pages/Apartments';
+import Experiences from './pages/Experiences';
 import BecomeHost from './pages/BecomeHost';
 import CreateListing from './pages/CreateListing';
 import MyListings from './pages/MyListings';
@@ -26,6 +27,7 @@ const App = () => {
           <Route index element={<HomePage />} />
           <Route path='homes' element={<HomePage />} />
           <Route path='rooms' element={<Apartments />} />
+          <Route path='experiences' element={<Experiences />} />
           <Route path='rooms/:roomId' element={<RoomDetailPage />} loader={roomDetailLoader} />
           <Route path='rooms/location/:location' element={<RoomsByLocationPage />} loader={locationRoomsLoader} />
           <Route path='signup' element={<Signup />} />
