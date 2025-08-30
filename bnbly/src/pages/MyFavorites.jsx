@@ -5,6 +5,7 @@ import { db } from "../firebase/firebaseConfig";
 import { doc, getDoc, deleteDoc, collection, getDocs } from "firebase/firestore";
 import RoomCard from "../components/RoomCard";
 import LinksNavigation from "../components/LinksNavigation";
+import { MyActivities } from "../components/Loading";
 
 
 const MyFavorites = () => {
@@ -66,14 +67,7 @@ const MyFavorites = () => {
 
   if (loading) {
     return (
-      <div className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {Array.from({ length: 6 }).map((_, index) => (
-          <div
-            key={index}
-            className="bg-gray-200 h-60 rounded-xl animate-pulse"
-          />
-        ))}
-      </div>
+      <MyActivities />
     );
   }
 

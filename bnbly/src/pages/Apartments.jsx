@@ -6,7 +6,7 @@ import LinksNavigation from "../components/LinksNavigation";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
-
+import Loading from "../components/Loading"
 
 const Apartments = () => {
   const [apartments, setApartments] = useState([]);
@@ -55,7 +55,7 @@ const Apartments = () => {
   };
   
   if (loading) {
-    return <p className="flex items-center justify-center h-lvh">Loading...</p>;
+    return <Loading />
   }
 
   if (apartments.length === 0) {
@@ -71,7 +71,7 @@ const Apartments = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+      <div className="px-6 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
         {apartments.map((apartment) => (
           <RoomCard
               key={apartment.id}

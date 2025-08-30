@@ -4,6 +4,7 @@ import { collection, query, where, orderBy, limit, getDocs } from "firebase/fire
 import RoomCard from "../components/RoomCard";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
+import Loading from "./Loading";
 
 const locations = ["lagos", "abuja", "rivers", "anambra", "enugu", "oyo"];
 
@@ -61,15 +62,20 @@ const HomepageListing = () => {
       );
     };
 
-  if (loading) return <p className="flex items-center justify-center h-lvh">Loading...</p>;
+  // if (loading) return <p className="flex items-center justify-center h-lvh">Loading...</p>;
+      if (loading) {
+        return (
+          <Loading />
+        );
+      }
 
   return (
     <div className="px-6 py-12">
     {locations.map(loc => (
         <div key={loc} className="mb-12">
-        <h2 className="text-xl font-semibold mb-4">Apartments in {loc}</h2>
+        <h2 className="text-xl font-semibold mb-4 px-6">Apartments in {loc}</h2>
 
-        <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+        <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
             {loading ? (
             // show 6 gray boxes while loading
             Array.from({ length: 6 }).map((_, index) => (

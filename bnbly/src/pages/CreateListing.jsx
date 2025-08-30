@@ -485,7 +485,7 @@ const CreateListing = () => {
         </div>
         <button 
           type="submit" 
-          className="w-full bg-green-600 hover:bg-green-700 transition-colors text-white font-semibold py-3 rounded-lg shadow-md"
+          className="w-full bg-green-600 cursor-pointer hover:bg-green-700 transition-colors text-white font-semibold py-3 rounded-lg shadow-md"
         >
           Submit Listing
         </button>

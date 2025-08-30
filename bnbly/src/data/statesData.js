@@ -35,7 +35,7 @@ export const statesData = [
   { key: "taraba", label: "Taraba" },
   { key: "yobe", label: "Yobe" },
   { key: "zamfara", label: "Zamfara" },
-  { key: "abuja", label: "FCT-Abuja" }
+  { key: "abuja", label: "Abuja" }
 ];
 
 export const amenities = [

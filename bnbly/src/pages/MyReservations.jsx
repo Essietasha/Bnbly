@@ -66,7 +66,7 @@ const MyReservations = () => {
 
   if (loading) {
     return (
-      <div className="p-6">
+      <div className="p-6 h-lvh">
         <h2 className="text-xl font-semibold mb-4">My Reservations</h2>
         <p>Loading your reservations...</p>
       </div>
@@ -75,7 +75,7 @@ const MyReservations = () => {
 
   if (reservations.length === 0) {
     return (
-      <div className="p-6">
+      <div className="p-6 h-lvh">
         <h2 className="text-xl font-semibold mb-4">My Reservations</h2>
         <p>You don't have any reservations yet.</p>
       </div>

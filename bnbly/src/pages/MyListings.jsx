@@ -3,6 +3,7 @@ import { db, auth } from "../firebase/firebaseConfig";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import RoomCard from "../components/RoomCard";
 import LinksNavigation from "../components/LinksNavigation";
+import { MyActivities } from "../components/Loading";
 
 const MyListings = () => {
   const [listings, setListings] = useState([]);
@@ -34,7 +35,7 @@ const MyListings = () => {
   }, []);
 
   if (loading) {
-    return <p className="flex items-center justify-center h-lvh">Loading...</p>;
+    return <MyActivities />
   }
 
   if (listings.length === 0) {
@@ -49,7 +50,7 @@ const MyListings = () => {
     <>
       <div className="pt-12 pb-6 max-w-6xl mx-auto px-6">
         <h2 className="text-2xl font-bold mb-6">My Listings</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {listings.map((room) => (
             <RoomCard
               key={room.id}

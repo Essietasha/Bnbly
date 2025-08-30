@@ -8,7 +8,7 @@ import { IoIosCheckmarkCircle } from "react-icons/io";
 import { FaLeaf, FaHeart } from "react-icons/fa";
 import { BsFillTrophyFill } from "react-icons/bs";
 import LinksNavigation from "../components/LinksNavigation";
-
+import { DetailsLoading } from "../components/Loading";
 
 const RoomDetailsPage = () => {
     const room = useLoaderData();
@@ -131,8 +131,8 @@ const RoomDetailsPage = () => {
         }
     };
   
-    if (!room) return <p className="text-center mt-10">Loading room details...</p>;
-    if (!host) return <p className="text-center mt-10">Loading host details...</p>;
+    if (!room) return <DetailsLoading />
+    if (!host) return <DetailsLoading/>
 
   return (
     <>
