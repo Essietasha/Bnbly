@@ -8,6 +8,7 @@ const PaymentPage = () => {
     const { reservationId } = useParams();
     const [reservation, setReservation] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [confirm, setConfirm] = useState(false);
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const taxes = 25;
@@ -21,6 +22,10 @@ const PaymentPage = () => {
 
             if (resSnap.exists()) {
             const reservationData = { id: resSnap.id, ...resSnap.data() };
+            
+            if (reservationData.status === "confirmed"){
+              setConfirm(true);
+            }
 
             // fetch room details
             if (reservationData.roomId) {
@@ -179,11 +184,18 @@ const PaymentPage = () => {
           <p>${totalPayment}</p>
         </div>
 
-        <button
-          onClick={handleFakePayment}
-          className="w-full mt-6 bg-gradient-to-r from-pink-500 to-rose-600 text-white py-3 rounded-xl text-lg font-semibold cursor-pointer hover:opacity-90 transition"
-            > Confirm and Pay
-        </button>
+        {!confirm && 
+          <button
+            onClick={handleFakePayment}
+            className="w-full mt-6 bg-gradient-to-r from-pink-500 to-rose-600 text-white py-3 rounded-xl text-lg font-semibold cursor-pointer hover:opacity-90 transition"
+              > Confirm and Pay
+          </button>
+        }
+        {confirm && 
+          <button
+            className="w-full mt-6 bg-gray-600 text-white py-3 rounded-xl text-lg font-semibold"
+            disabled > Reservation confirmed
+          </button>}
       </div>
     </div>
   );
