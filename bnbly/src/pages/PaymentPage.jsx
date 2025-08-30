@@ -64,7 +64,7 @@ const PaymentPage = () => {
             const existingEnd = new Date(data.endDate);
 
             // Prevent same user booking same room again
-            if (data.userId === user.uid && data.roomId === roomId) {
+            if (data.userId === user.uid && data.roomId === reservation.roomId) {
             conflict = true;
             return;
             }
@@ -93,13 +93,13 @@ const PaymentPage = () => {
 
         await updateDoc(resRef, {
             status: "confirmed",
-            userId: user?.uid,
         });
 
         alert("Payment successful! Reservation confirmed");
         navigate("/myreservations");
         } catch (error) {
         console.error("Error updating reservation:", error);
+        console.log("Updating reservation", reservationId, "as user", user.uid);
         alert("Something went wrong.");
         }
     };
