@@ -97,7 +97,7 @@ const PaymentPage = () => {
         });
 
         alert("Payment successful! Reservation confirmed");
-        navigate("/myReservations");
+        navigate("/myreservations");
         } catch (error) {
         console.error("Error updating reservation:", error);
         alert("Something went wrong.");

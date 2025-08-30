@@ -83,9 +83,9 @@ const BecomeHost = () => {
   if (loading) return <p className="flex items-center justify-center h-lvh text-blue-600">Loading host status...</p>;
   if (isHost) {
     return (
-      <div className="flex flex-col items-center justify-center h-lvh">
-        <p className="text-green-600">You're already a host!</p>
-        <NavLink to="/createlisting" className="font-semibold mt-4 px-4 py-2 border border-b-gray-800 bg-black text-white">
+      <div className="flex flex-col items-center justify-center h-lvh bg-black">
+        <p className="text-green-600 text-[1.2rem]">You're already a host!</p>
+        <NavLink to="/createlisting" className="font-semibold mt-4 px-4 py-2 border border-b-gray-800 bg-white text-black">
           Create a Listing
         </NavLink>
       </div>
