@@ -36,7 +36,7 @@ const RoomCard = ({ room, isFav, collectionName, onFavChange }) => {
     <div className="bg-white rounded-xl shadow-md overflow-hidden transition hover:scale-105">
       <NavLink to={`/rooms/${room.id}`}>
         <div className="relative">
-          {room.topTen && room.rating === 5.0 && (
+          {room.guestFavorite && room.topTen && room.rating === 5.0 && (
             <div className="absolute top-2 left-2 bg-gray-100 text-black text-xs font-semibold px-2 py-1 rounded shadow">
               Guest favorite
             </div>

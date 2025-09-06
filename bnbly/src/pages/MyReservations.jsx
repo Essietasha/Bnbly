@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { db } from "../firebase/firebaseConfig";
+import { useNavigate } from "react-router-dom";
 import { collection, query, where, getDocs, doc, getDoc } from "firebase/firestore";
 import { AuthContext } from "../context/AuthContext";
 import LinksNavigation from "../components/LinksNavigation";
@@ -10,6 +11,12 @@ const MyReservations = () => {
   const [reservations, setReservations] = useState([]);
   const [loading, setLoading] = useState(true);
   const taxes = 25;
+  const navigate = useNavigate();
+
+  if (!user) {
+    navigate("/login");
+    return;
+  };
 
   useEffect(() => {
     if (!user) return;

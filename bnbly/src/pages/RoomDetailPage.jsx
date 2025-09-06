@@ -178,7 +178,7 @@ const RoomDetailsPage = () => {
               </div>
             </div>
 
-            {room.topTen && room.rating === 5.0 &&
+            {room.guestFavorite && room.topTen && room.rating === 5.0 &&
               <div className="flex items-center gap-4 p-4 border border-gray-200 rounded-xl text-sm mt-4 mb-2">
                 <div className="flex items-center gap-1">
                   <span>🌿</span>
