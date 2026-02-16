@@ -9,7 +9,7 @@ export default function useFavorite(room) {
   const navigate = useNavigate();
   const [isFav, setIsFav] = useState(false);
 
-  // Real-time listener for favorite status
+  // Real time listener for favorite status
   useEffect(() => {
     if (!user || !room?.id) {
       setIsFav(false);
