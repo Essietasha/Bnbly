@@ -1,4 +1,4 @@
-// Import the functions needed from the SDKs - Software Development Kits
+// Functions from the SDKs - Software Development Kits
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
