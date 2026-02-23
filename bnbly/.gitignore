@@ -25,6 +25,6 @@ dist-ssr
 .env
 
 # Other Files
-src/firebase/firebaseConfig.js
-src/loaders/
-src/pages/
+/src/firebase/firebaseConfig.js
+/src/loaders/
+/src/pages/
