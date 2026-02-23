@@ -24,7 +24,11 @@ dist-ssr
 *.sw?
 .env
 
-# Other Files
+# Ignore sensitive files/folders
 /src/firebase/firebaseConfig.js
-/src/loaders/
-/src/pages/
+
+/src/loaders/*
+!/src/loaders/.gitkeep
+
+/src/pages/*
+!/src/pages/.gitkeep
