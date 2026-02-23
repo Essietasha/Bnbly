@@ -23,6 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 .env
-firebase/firebaseConfig.js
-loaders/
-pages/
+
+# Other Files
+src/firebase/firebaseConfig.js
+src/loaders/
+src/pages/
