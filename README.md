@@ -6,11 +6,7 @@ Bnbly is a modern full-stack travel and apartment booking platform that allows u
 ## Tech Stack
 
 ### Frontend
-React (Functional Components + Hooks)
-React Router
-Context API (State Management)
-Tailwind CSS (Responsive UI)
-JavaScript (ES6+)
+React, Firebase, JavaScript, Tailwind CSS
 
 ### Backend & Database
 Firebase Authentication
